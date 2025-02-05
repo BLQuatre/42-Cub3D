@@ -6,8 +6,13 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:25:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/05 18:26:06 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/05 18:36:47 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	main(void)
+{
+	return (0);
+}
