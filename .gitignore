@@ -1,0 +1,14 @@
+*.pdf
+
+.vscode/
+.tests/
+objs/
+
+*.out
+*.o
+*.a
+
+
+cub3d
+mlx42
+mlx42_src
