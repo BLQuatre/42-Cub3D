@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:58:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/06 14:29:48 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:48:59 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,28 @@
 # define CUB3D_H
 
 # include "MLX42.h"
+
+typedef struct s_vector
+{
+	int	x;
+	int	y;
+	int h;
+}	t_vector;
+
+typedef struct s_map
+{
+	t_vector	start_pos;
+}	t_map;
+
+typedef struct s_game
+{
+	char		*north_texture;
+	char		*south_texture;
+	char		*west_texture;
+	char		*east_texture;
+	uint32_t	floor_color;
+	uint32_t	celling_color;
+	char		**map;
+}	t_game;
 
 #endif
