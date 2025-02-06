@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/06 17:20:47 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/06 18:05:22 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,13 +39,17 @@ OBJS_DIR	= objs
 OBJS_FILES	= $(FILES:.c=.o)
 OBJS		= $(addprefix $(OBJS_DIR)/, $(OBJS_FILES))
 
-GREEN	= \033[0;32m
-CYAN	= \033[0;36m
-RESET	= \033[0m
-GRAY	= \033[90m
+GREEN		= \033[0;32m
+CYAN		= \033[0;36m
+RESET		= \033[0m
+GRAY		= \033[90m
 
-SUCCESS	= $(GREEN)[SUCCESS]$(RESET)
-INFO	= $(CYAN)[INFO]$(RESET)
+SUCCESS		= $(GREEN)[SUCCESS]$(RESET)
+INFO		= $(CYAN)[INFO]$(RESET)
+
+WIN_SIZE	= \
+	-D WIN_WIDTH=$$(xrandr --current | grep '*' | uniq | awk '{print $$1}' | cut -d 'x' -f1) \
+	-D WIN_HEIGHT=$$(xrandr --current | grep '*' | uniq | awk '{print $$1}' | cut -d 'x' -f2)
 
 all: $(NAME)
 
