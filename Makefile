@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
+#    By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/06 14:23:38 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/06 14:29:25 by jbergos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= cub3d
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
-INC_FLAGS	= -Iincludes -Ilibft/includes -Imlx/include
+INC_FLAGS	= -Iincludes -Ilibft/includes
 
 LIB_GIT_URL	= https://github.com/BLQuatre/42-my_libft.git
 LIB_DIR		= libft
