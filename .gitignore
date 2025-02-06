@@ -13,3 +13,4 @@ libft/
 mlx42_src/
 mlx42/
 objs/
+includes/MLX42*.h

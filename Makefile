@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/06 14:07:14 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/06 14:23:38 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ LIB_LIB		= $(addprefix $(LIB_DIR)/, $(LIB_FILE))
 MLX_GIT_URL	= https://github.com/codam-coding-college/MLX42.git
 MLX_SRC_DIR	= mlx42_src
 MLX_DIR		= mlx42
+MLX_INC_DIR	= $(MLX_SRC_DIR)/include/MLX42
 MLX_FILE	= libmlx42.a
 MLX_LIB		= $(addprefix $(MLX_DIR)/, $(MLX_FILE))
 MLX_FLAG	= -ldl -lglfw -pthread -lm
@@ -79,6 +80,7 @@ $(MLX_LIB):
 		git clone $(MLX_GIT_URL) $(MLX_SRC_DIR);		\
 		cmake -S $(MLX_SRC_DIR) -B $(MLX_DIR);			\
 		make -C $(MLX_DIR) -j $$(nproc);				\
+		cp -r $(MLX_INC_DIR)/* includes;				\
 		rm -rf  $(MLX_SRC_DIR);							\
 		echo "$(SUCCESS) $(MLX_DIR) compiled.";			\
 	fi
@@ -91,6 +93,7 @@ $(NAME): $(LIB_LIB) $(MLX_LIB) $(OBJS)
 clean:
 	@echo "$(INFO) Removing $(MLX_DIR)...$(GRAY)"
 	rm -rf $(MLX_DIR)
+	rm -f includes/MLX42*.h
 	@echo "$(INFO) Removing $(LIB_DIR)...$(GRAY)"
 	rm -rf $(LIB_DIR)
 	@echo "$(INFO) Removing object files...$(GRAY)"
