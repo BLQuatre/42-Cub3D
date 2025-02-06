@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/06 18:05:22 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/06 19:44:01 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,9 @@ MLX_DIR		= mlx42
 MLX_FILE	= libmlx42.a
 MLX_LIB		= $(MLX_DIR)/$(MLX_FILE)
 
-RAW_FILES	= core/cub3d
+RAW_FILES	=	debug/debug debug/vector debug/map debug/game debug/color	\
+				\
+				core/cub3d
 
 FILES		= $(addsuffix .c, $(RAW_FILES))
 
