@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:58:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/06 18:59:06 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/06 19:46:41 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_vector
 {
 	int	x;
 	int	y;
-	int h;
+	int	h;
 }	t_vector;
 
 typedef struct s_map
