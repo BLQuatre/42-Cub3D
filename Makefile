@@ -3,31 +3,32 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+         #
+#    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/06 14:29:25 by jbergos          ###   ########.fr        #
+#    Updated: 2025/02/06 17:20:47 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= cub3d
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
-INC_FLAGS	= -Iincludes -Ilibft/includes
+CFLAGS		= -Wall -Wextra -Werror -g -pthread
+LFLAGS		= -ldl -lglfw -lm
+
+INC_DIR		= includes
+INC_FLAGS	= -I$(INC_DIR) -Ilibft/$(INC_DIR) -I$(INC_DIR)/MLX42
 
 LIB_GIT_URL	= https://github.com/BLQuatre/42-my_libft.git
 LIB_DIR		= libft
 LIB_FILE	= libft.a
-LIB_LIB		= $(addprefix $(LIB_DIR)/, $(LIB_FILE))
+LIB_LIB		= $(LIB_DIR)/$(LIB_FILE)
 
 MLX_GIT_URL	= https://github.com/codam-coding-college/MLX42.git
 MLX_SRC_DIR	= mlx42_src
-MLX_DIR		= mlx42
 MLX_INC_DIR	= $(MLX_SRC_DIR)/include/MLX42
+MLX_DIR		= mlx42
 MLX_FILE	= libmlx42.a
-MLX_LIB		= $(addprefix $(MLX_DIR)/, $(MLX_FILE))
-MLX_FLAG	= -ldl -lglfw -pthread -lm
-MLX_EX		= $(MLX_LIB) $(MLX_FLAG)
+MLX_LIB		= $(MLX_DIR)/$(MLX_FILE)
 
 RAW_FILES	= core/cub3d
 
@@ -80,20 +81,20 @@ $(MLX_LIB):
 		git clone $(MLX_GIT_URL) $(MLX_SRC_DIR);		\
 		cmake -S $(MLX_SRC_DIR) -B $(MLX_DIR);			\
 		make -C $(MLX_DIR) -j $$(nproc);				\
-		cp -r $(MLX_INC_DIR)/* includes;				\
+		cp -r $(MLX_INC_DIR) $(INC_DIR);				\
 		rm -rf  $(MLX_SRC_DIR);							\
 		echo "$(SUCCESS) $(MLX_DIR) compiled.";			\
 	fi
 
 $(NAME): $(LIB_LIB) $(MLX_LIB) $(OBJS)
 	@echo "$(INFO) Compiling $(NAME)...$(GRAY)"
-	$(CC) $(CFLAGS) $(INC_FLAGS) $(LIB_LIB) $(MLX_EX) $(OBJS) -o $@
+	$(CC) $(CFLAGS) $(INC_FLAGS) $(OBJS) $(LIB_LIB) $(MLX_LIB) $(LFLAGS) -o $@
 	@echo "$(SUCCESS) $(NAME) compiled."
 
 clean:
 	@echo "$(INFO) Removing $(MLX_DIR)...$(GRAY)"
 	rm -rf $(MLX_DIR)
-	rm -f includes/MLX42*.h
+	rm -rf $(INC_DIR)/MLX42
 	@echo "$(INFO) Removing $(LIB_DIR)...$(GRAY)"
 	rm -rf $(LIB_DIR)
 	@echo "$(INFO) Removing object files...$(GRAY)"
