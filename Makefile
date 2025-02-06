@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/06 13:54:37 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/06 14:07:14 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,4 +104,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all lib mlx clean fclean re
+.PHONY: all clean fclean re
