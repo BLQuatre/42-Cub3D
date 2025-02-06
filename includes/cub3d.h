@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:58:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/06 17:04:22 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/06 18:59:06 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_vector
 
 typedef struct s_map
 {
+	char		**map;
 	t_vector	start_pos;
 }	t_map;
 
@@ -35,7 +36,7 @@ typedef struct s_game
 	char		*east_texture;
 	uint32_t	floor_color;
 	uint32_t	celling_color;
-	char		**map;
+	t_map		map;
 }	t_game;
 
 #endif
