@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/13 01:01:02 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/13 03:07:47 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,8 @@ RAW_FILES	=	debug/debug debug/vector debug/map debug/game debug/color	\
 				parsing/colors parsing/game parsing/map_check				\
 				parsing/map_utils parsing/map parsing/textures_errors		\
 				parsing/textures parsing/utils								\
+				\
+				render/render render/exit render/hook render/main render/ray render/rendering \
 				\
 				core/cub3d core/errors
 
@@ -73,7 +75,7 @@ $(OBJS_DIR):
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c | $(OBJS_DIR)
 	mkdir -p $(dir $@)
 	@echo "$(INFO) Compiling $<...$(GRAY)"
-	$(CC) $(CFLAGS) $(INC_FLAGS) -c $< -o $@
+	$(CC) $(WIN_SIZE) $(CFLAGS) $(INC_FLAGS) -c $< -o $@
 
 $(LIB_LIB):
 	@if [ -d ./$(LIB_DIR) ]; then	\
@@ -102,7 +104,7 @@ $(MLX_LIB):
 
 $(NAME): $(LIB_LIB) $(MLX_LIB) $(OBJS)
 	@echo "$(INFO) Compiling $(NAME)...$(GRAY)"
-	$(CC) $(CFLAGS) $(INC_FLAGS) $(OBJS) $(LIB_LIB) $(MLX_LIB) $(LFLAGS) -o $@
+	$(CC) $(WIN_SIZE) $(CFLAGS) $(INC_FLAGS) $(OBJS) $(LIB_LIB) $(MLX_LIB) $(LFLAGS) -o $@
 	@echo "$(SUCCESS) $(NAME) compiled."
 
 clean:
