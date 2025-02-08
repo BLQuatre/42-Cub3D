@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:00:08 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/07 20:38:00 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/08 10:04:21 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	wall_hit(float x, float y, t_mlx *mlx)
 	y_m = floor(y / TILE_SIZE);
 	if ((y_m >= mlx->dt->h_map || x_m >= mlx->dt->w_map))
 		return (0);
-	if (mlx->dt->map2d[y_m] && x_m <= (int)ft_strlen(mlx->dt->map2d[y_m]))
+	if (mlx->dt->map2d[y_m] && x_m <= (int)strlen(mlx->dt->map2d[y_m]))
 		if (mlx->dt->map2d[y_m][x_m] == '1')
 			return (0);
 	return (1);

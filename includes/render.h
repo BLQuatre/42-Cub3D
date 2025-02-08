@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/07 20:34:42 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/08 17:53:36 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "libft.h"
 # define _USE_MATH_DEFINES
 # include <math.h>
+# include <string.h>
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
@@ -34,7 +35,7 @@
 # define TILE_SIZE 30
 # define FOV 60
 # define ROT_SPEED 0.045
-# define P_SPEED 2
+# define P_SPEED 4
 
 typedef struct s_player
 {

@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:53:33 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/07 20:30:00 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/08 10:33:17 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	rotate_player(t_mlx *mlx, int i)
 	if (i == 1)
 	{
 		mlx->player->angle += ROT_SPEED;
-		if (mlx->player->angle > 2 *M_PI)
+		if (mlx->player->angle > 2 * M_PI)
 			mlx->player->angle -= 2 * M_PI;
 	}
 	else
