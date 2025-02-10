@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:14:16 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/08 10:13:46 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/10 20:40:49 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	draw_floor_ceiling(t_mlx *mlx, int ray, int t_pix, int b_pix)
 
 	i = b_pix;
 	while (i < WIN_HEIGHT)
-		my_mlx_pixel_put(mlx, ray, i++, 0xB99470FF);
+		my_mlx_pixel_put(mlx, ray, i++, t_color_to_uint(mlx->game->floor_color));
 	i = 0;
 	while (i < t_pix)
-		my_mlx_pixel_put(mlx, ray, i++, 0x89CFF3FF);
+		my_mlx_pixel_put(mlx, ray, i++, t_color_to_uint(mlx->game->celling_color));
 }
 
 int get_color(t_mlx *mlx, int flag)
@@ -66,13 +66,38 @@ int get_color(t_mlx *mlx, int flag)
 	}
 }
 
-void	draw_wall(t_mlx *mlx, int ray, int t_pix, int b_pix)
+double	get_x_o(mlx_texture_t *texture, t_mlx *mlx)
 {
-	int color;
+	double x_o;
 
-	color = get_color(mlx, mlx->ray->flag);
+	if (mlx->ray->flag == 1)
+		x_o = (int)fmodf((mlx->ray->h_x * (texture->width / TILE_SIZE)), texture->width);
+	else
+		x_o = (int)fmodf((mlx->ray->v_y * (texture->width / TILE_SIZE)), texture->width);
+	return (x_o);
+}
+
+void	draw_wall(t_mlx *mlx, int t_pix, int b_pix, double wall_h)
+{
+	double	x_o;
+	double	y_o;
+	mlx_texture_t *texture;
+	uint32_t	*arr;
+	double factor;
+
+	texture = get_texture(mlx, mlx->ray->flag);
+	arr = (uint32_t *)texture->pixels;
+	factor = (double)texture->height / wall_h;
+	x_o = get_x_o(texture, mlx);
+	y_o = (t_pix - (WIN_HEIGHT / 2) + (wall_h / 2)) * factor;
+	if (y_o < 0)
+		y_o = 0;
 	while (t_pix < b_pix)
-		my_mlx_pixel_put(mlx, ray, t_pix++, color);
+	{
+		my_mlx_pixel_put(mlx, mlx->ray->index, t_pix, reverse_bytes(arr[(int)y_o * texture->width + (int)x_o]));
+		y_o += factor;
+		t_pix++;
+	}
 }
 
 void	render_wall(t_mlx *mlx, int ray)
@@ -89,6 +114,7 @@ void	render_wall(t_mlx *mlx, int ray)
 		b_pix = WIN_HEIGHT;
 	if (t_pix < 0)
 		t_pix = 0;
-	draw_wall(mlx, ray, t_pix, b_pix);
+	mlx->ray->index = ray;
+	draw_wall(mlx, t_pix, b_pix, wall_h);
 	draw_floor_ceiling(mlx, ray, t_pix, b_pix); 
 }

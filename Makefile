@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/13 03:09:13 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/13 03:09:46 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ RAW_FILES	=	debug/debug debug/vector debug/map debug/game debug/color	\
 				parsing/map_utils parsing/map parsing/textures_errors		\
 				parsing/textures parsing/utils								\
 				\
-				render/render render/exit render/hook render/main render/ray render/rendering \
+				render/render render/exit render/hook render/main render/ray render/rendering render/texture \
 				\
 				core/cub3d core/errors
 

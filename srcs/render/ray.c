@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:00:08 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/10 13:34:12 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/10 20:24:05 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ int	wall_hit(float x, float y, t_mlx *mlx)
 		return (0);
 	x_m = floor(x / TILE_SIZE);
 	y_m = floor(y / TILE_SIZE);
-	if ((y_m >= mlx->game->maps->h_map || x_m >= mlx->game->maps->w_map))
+	if ((y_m >= mlx->game->map->max_h || x_m >= mlx->game->map->max_w))
 		return (0);
-	if (mlx->game->maps->map[y_m] && x_m <= (int)strlen(mlx->game->maps->map[y_m]))
-		if (mlx->game->maps->map[y_m][x_m] == '1')
+	if (mlx->game->map->map[y_m] && x_m <= (int)strlen(mlx->game->map->map[y_m]))
+		if (mlx->game->map->map[y_m][x_m] == '1')
 			return (0);
 	return (1);
 }
@@ -87,6 +87,8 @@ float get_h_inter(t_mlx *mlx, float angl)
 		h_x += x_step;
 		h_y += y_step;
 	}
+	mlx->ray->h_x = h_x;
+	mlx->ray->h_y = h_y;
 	return (sqrt(pow(h_x - mlx->player->plyr_x, 2) + pow(h_y - mlx->player->plyr_y, 2)));
 }
 
@@ -110,6 +112,8 @@ float get_v_ibnter(t_mlx *mlx, float angl)
 		v_x += x_step;
 		v_y += y_step;
 	}
+	mlx->ray->v_x = v_x;
+	mlx->ray->v_y = v_y;
 	return (sqrt(pow(v_x - mlx->player->plyr_x, 2) + pow(v_y - mlx->player->plyr_y, 2)));
 }
 

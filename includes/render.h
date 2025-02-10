@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/10 14:26:25 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/10 20:41:19 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ typedef struct s_ray
 {
 	double	ray_a;
 	double	dist;
+	double	h_x;
+	double	h_y;
+	double	v_x;
+	double	v_y;
+	int		index;
 	int		flag;
 } t_ray;
 
@@ -64,6 +69,13 @@ typedef struct s_data
 	int h_map;
 } t_data;
 
+typedef struct s_texture
+{
+	mlx_texture_t	*no;
+	mlx_texture_t	*so;
+	mlx_texture_t	*ea;
+	mlx_texture_t	*we;
+} t_texture;
 
 typedef struct s_mlx
 {
@@ -72,6 +84,7 @@ typedef struct s_mlx
 	t_ray		*ray;
 	t_game		*game;
 	t_player	*player;
+	t_texture	*texture;
 }	t_mlx;
 
 void	game_loop(void *ml);
@@ -87,7 +100,7 @@ void	my_mlx_pixel_put(t_mlx *mlx, int x, int y, int color);
 float 	nor_angle(float angle);
 void	draw_floor_ceiling(t_mlx *mlx, int ray, int t_pix, int b_pix);
 int		get_color(t_mlx *mlx, int flag);
-void	draw_wall(t_mlx *mlx, int ray, int t_pix, int b_pix);
+void	draw_wall(t_mlx *mlx, int t_pix, int b_pix, double wall_h);
 void	render_wall(t_mlx *mlx, int ray);
 void	ft_reles(mlx_key_data_t keydata, t_mlx *mlx);
 void	mlx_key(mlx_key_data_t keydata, void *ml);
@@ -95,4 +108,7 @@ void	rotate_player(t_mlx *mlx, int i);
 void	move_player(t_mlx *mlx, double move_x, double move_y);
 void	hook(t_mlx *mlx, double move_x, double move_y);
 void	ft_exit(void *v_mlx);
+void	add_texture(t_mlx *mlx);
+mlx_texture_t	*get_texture(t_mlx *mlx, int flag);
+int reverse_bytes(int c);
 #endif
