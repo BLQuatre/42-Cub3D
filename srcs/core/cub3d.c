@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:25:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/07 19:07:27 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/10 09:48:18 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_list	*preprocess_map(char *file)
 	while (line || !head)
 	{
 		line = get_next_line(map_fd);
-		if (line && (ft_strlen(line) - 1) == '\n')
+		if (line && line[ft_strlen(line) - 1] == '\n')
 			line[ft_strlen(line) - 1] = '\0';
 		tmp = ft_lstnew(line);
 		if (!tmp)
@@ -70,81 +70,96 @@ t_list	*preprocess_map(char *file)
 char	*get_texture_identifier(t_texture_place texture_place)
 {
 	if (texture_place == NORTH)
-		return ("NO");
+		return ("NO ");
 	else if (texture_place == SOUTH)
-		return ("SO");
+		return ("SO ");
 	else if (texture_place == WEST)
-		return ("WE");
+		return ("WE ");
 	else if (texture_place == EAST)
-		return ("EA");
+		return ("EA ");
 	else if (texture_place == FLOOR)
-		return ("F");
+		return ("F ");
 	else if (texture_place == CELLING)
-		return ("C");
+		return ("C ");
 	return (NULL);
 }
 
-bool	set_texture(char **dest, char *texture)
+bool	is_map_char(int c)
 {
-	if (*dest)
-		return false;
-	*dest = texture;
-	return (true);
+	int i = 0
+}
 
+char	*get_line_from_texture(t_texture_place texture_place, char *line)
+{
+	char	*texture_id;
+
+	texture_id = get_texture_identifier(texture_place);
+	if (!texture_id)
+		return (NULL);
+	while (*line && ft_isspace(*line))
+		line++;
+	if ()
+	if (ft_strncmp(line, texture_id, ft_strlen(texture_id)) == 0)
+		return line += ft_strlen(texture_id);
+	return (NULL);
+}
+
+char *secure_strdup(char *str)
+{
+	if (!str)
+		return (NULL);
+	return ft_strdup(str);
 }
 
 char	*parse_texture(t_texture_place texture_place, t_list *str_map)
 {
-	char *texture_id = get_texture_identifier(texture_place);
-	if (!texture_id)
-		return (NULL);
+	char	*texture_line;
 
+	texture_line = NULL;
 	while (str_map->next)
 	{
-		char **test = ft_split((char *) str_map->content, ' ');
-
-
-		if (test[0] && ft_strncmp(test[0], texture_id, 3) == 0)
-		{
-			printf("|1|%s|2|\n", test[0]);
-			printf("|1|%s|2|\n", test[1]);
-		}
-
-
-		int i =0;
-		while (test[i]) {
-			free(test[i]);
-			i++;
-		}
-		free(test);
+		texture_line = get_line_from_texture(texture_place, str_map->content);
+		if (texture_line)
+			break;
 		str_map = str_map->next;
 	}
+	if (!texture_line || ft_strlen(texture_line) == 0)
+	{
+		// free and quit game no make check in parse_textures
+	}
+	return (texture_line);
+}
+
+t_color	*parse_color_texture(char *line)
+{
+	char	**colors;
+	int		tmp_color;
+
+	colors = ft_split(line, ',');
+	if (!colors || array_len(colors) != 3)
+		return (array_free(colors), NULL);
+	tmp_color = ft
+	if (ft_atoi())
+
+
+
+
+	printf("Color line: `%s`\n", line);
 
 	return (NULL);
 }
 
+void	parse_textures(t_game *game, t_list	*str_map)
+{
+	game->north_texture = secure_strdup(parse_texture(NORTH, str_map));
+	game->south_texture = secure_strdup(parse_texture(SOUTH, str_map));
+	game->west_texture = secure_strdup(parse_texture(WEST, str_map));
+	game->east_texture = secure_strdup(parse_texture(EAST, str_map));
+	game->floor_color = parse_color_texture(parse_texture(FLOOR, str_map));
+	game->celling_color = parse_color_texture(parse_texture(CELLING, str_map));
 
-
-
-// void	parse_textures(t_game *game, t_list	*map_str)
-// {
-// 	bool	dup_flag;
-
-// 	while (map_str)
-// 	{
-// 		if (set_texture(&game->north_texture, parse_texture(NORTH, (char *) map_str->content))
-// 		|| set_texture(&game->south_texture, parse_texture(SOUTH, (char *) map_str->content))
-// 		|| set_texture(&game->north_texture, parse_texture(NORTH, (char *) map_str->content))
-// 		|| set_texture(&game->north_texture, parse_texture(NORTH, (char *) map_str->content))
-// 		||)
-// 	}
-// }
-
-
-
-
-
-
+	// switch secure_strdup to isvalidtexture
+}
 
 void print_map(t_list *str_map)
 {
@@ -164,7 +179,9 @@ int	main(int ac, char **av)
 	t_game *game;
 	game = (t_game *) ft_calloc(1, sizeof(t_game));
 
-	parse_texture(NORTH, str_map);
+	parse_textures(game, str_map);
+
+	debug_show_game(game);
 
 	ft_lstclear(&str_map, free);
 	free(game);
