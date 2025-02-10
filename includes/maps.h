@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:14:28 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/10 09:34:56 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/10 14:21:11 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,21 @@
 # define FILE_EXT ".cub"
 # define MAP_CHARS "10DNSEW"
 
-typedef enum e_texture_place
-{
-	NORTH,
-	SOUTH,
-	WEST,
-	EAST,
-	FLOOR,
-	CELLING
-}	t_texture_place;
+# define NORTH_ID "NO "
+# define SOUTH_ID "SO "
+# define WEST_ID "WE "
+# define EAST_ID "EA "
+# define FLOOR_ID "F "
+# define CELLING_ID "C "
 
-/*** UTILS */
-// Colors
-t_color		*uint_to_t_color(const uint32_t rgba);
-uint32_t	t_color_to_uint(const t_color *color);
-
-// Arrays
-void		array_free(char **array);
-int			array_len(char **array);
+// typedef enum e_texture_place
+// {
+// 	NORTH,
+// 	SOUTH,
+// 	WEST,
+// 	EAST,
+// 	FLOOR,
+// 	CELLING
+// }	t_texture_place;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:25:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/10 09:48:18 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/10 15:00:41 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,16 @@
 
 void	error(char *msg)
 {
-	write(2, "Error\n", 6);
-	write(2, msg, ft_strlen(msg));
-	write(2, "\n", 1);
+	ft_putendl_fd("Error", 2);
+	ft_putendl_fd(msg, 2);
+}
+
+void	quit(t_game *game, char *msg, int exit_code)
+{
+	error(msg);
+	if (msg)
+		error(msg);
+	exit(exit_code);
 }
 
 bool	is_valid_extension(char *file, char *extension)
@@ -66,69 +73,50 @@ t_list	*preprocess_map(char *file)
 	return (head);
 }
 
-
-char	*get_texture_identifier(t_texture_place texture_place)
-{
-	if (texture_place == NORTH)
-		return ("NO ");
-	else if (texture_place == SOUTH)
-		return ("SO ");
-	else if (texture_place == WEST)
-		return ("WE ");
-	else if (texture_place == EAST)
-		return ("EA ");
-	else if (texture_place == FLOOR)
-		return ("F ");
-	else if (texture_place == CELLING)
-		return ("C ");
-	return (NULL);
-}
-
 bool	is_map_char(int c)
 {
-	int i = 0
+	int i = 0;
+	(void) c;
+	return (false);
 }
 
-char	*get_line_from_texture(t_texture_place texture_place, char *line)
+char	*get_line_from_texture(t_game *game, char *line, char *texture_id)
 {
-	char	*texture_id;
-
-	texture_id = get_texture_identifier(texture_place);
-	if (!texture_id)
-		return (NULL);
 	while (*line && ft_isspace(*line))
 		line++;
-	if ()
+	if (is_map_char(*line)
+		&& ft_strncmp(line, texture_id, ft_strlen(texture_id)) != 0)
+	{
+		quit(game, "Map cannot be befor")
+	}
 	if (ft_strncmp(line, texture_id, ft_strlen(texture_id)) == 0)
 		return line += ft_strlen(texture_id);
 	return (NULL);
 }
 
-char *secure_strdup(char *str)
-{
-	if (!str)
-		return (NULL);
-	return ft_strdup(str);
-}
-
-char	*parse_texture(t_texture_place texture_place, t_list *str_map)
+char	*parse_texture(t_game *game, t_list *str_map, char *texture_id)
 {
 	char	*texture_line;
 
 	texture_line = NULL;
 	while (str_map->next)
 	{
-		texture_line = get_line_from_texture(texture_place, str_map->content);
+		texture_line = get_line_from_texture(texture_id, str_map->content);
 		if (texture_line)
 			break;
 		str_map = str_map->next;
 	}
-	if (!texture_line || ft_strlen(texture_line) == 0)
-	{
-		// free and quit game no make check in parse_textures
-	}
 	return (texture_line);
 }
+
+char	*process_texture(t_game *game, t_list *str_map, char *texture_id)
+{
+	char	*texture = parse_texture(game, str_map, texture_id);
+
+}
+
+
+
 
 t_color	*parse_color_texture(char *line)
 {
@@ -151,15 +139,39 @@ t_color	*parse_color_texture(char *line)
 
 void	parse_textures(t_game *game, t_list	*str_map)
 {
-	game->north_texture = secure_strdup(parse_texture(NORTH, str_map));
-	game->south_texture = secure_strdup(parse_texture(SOUTH, str_map));
-	game->west_texture = secure_strdup(parse_texture(WEST, str_map));
-	game->east_texture = secure_strdup(parse_texture(EAST, str_map));
+	game->north_texture = process_texture(NORTH, str_map);
+	game->south_texture = process_texture(SOUTH, str_map);
+	game->west_texture = process_texture(WEST, str_map);
+	game->east_texture = process_texture(EAST, str_map);
 	game->floor_color = parse_color_texture(parse_texture(FLOOR, str_map));
 	game->celling_color = parse_color_texture(parse_texture(CELLING, str_map));
 
-	// switch secure_strdup to isvalidtexture
+	// show error here if texture is invalid
 }
+
+
+void	process_map(t_game *game, t_list *str_map)
+{
+	t_list *tmp;
+
+	tmp = str_map;
+
+	while (tmp)
+	{
+		if
+		()
+
+
+
+		tmp = tmp->next;
+	}
+
+}
+
+
+
+
+
 
 void print_map(t_list *str_map)
 {
