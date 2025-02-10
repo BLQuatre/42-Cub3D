@@ -1,0 +1,2050 @@
+==90314== Memcheck, a memory error detector
+==90314== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==90314== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==90314== Command: ./cub3d
+==90314== Parent PID: 87435
+==90314== 
+==90314== Warning: noted but unhandled ioctl 0x644f with no size/direction hints.
+==90314==    This could cause spurious value errors to appear.
+==90314==    See README_MISSING_SYSCALL_OR_IOCTL for guidance on writing a proper wrapper.
+==90314== Warning: noted but unhandled ioctl 0x6444 with no size/direction hints.
+==90314==    This could cause spurious value errors to appear.
+==90314==    See README_MISSING_SYSCALL_OR_IOCTL for guidance on writing a proper wrapper.
+==90314== 
+==90314== HEAP SUMMARY:
+==90314==     in use at exit: 66,078 bytes in 908 blocks
+==90314==   total heap usage: 14,155 allocs, 13,247 frees, 623,832,828 bytes allocated
+==90314== 
+==90314== 0 bytes in 3 blocks are definitely lost in loss record 1 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4005A22: malloc (rtld-malloc.h:56)
+==90314==    by 0x4005A22: _dl_find_object_update (dl-find_object.c:791)
+==90314==    by 0x400ECCF: dl_open_worker_begin (dl-open.c:735)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400E34D: _dl_open (dl-open.c:883)
+==90314==    by 0x4A5163B: dlopen_doit (dlopen.c:56)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x4B35B62: _dl_catch_error (dl-error-skeleton.c:227)
+==90314==    by 0x4A5112D: _dlerror_run (dlerror.c:138)
+==90314==    by 0x4A516C7: dlopen_implementation (dlopen.c:71)
+==90314==    by 0x4A516C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+==90314== 
+==90314== 6 bytes in 1 blocks are still reachable in loss record 2 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4A6958E: strdup (strdup.c:42)
+==90314==    by 0x4C4058E: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 7 bytes in 1 blocks are indirectly lost in loss record 3 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1048F3: ???
+==90314==    by 0xA0EA758: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314== 
+==90314== 8 bytes in 1 blocks are still reachable in loss record 4 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C4BC49: _XimOpenIM (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x488A205: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 8 bytes in 1 blocks are indirectly lost in loss record 5 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA105601: ???
+==90314==    by 0xA102826: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== 8 bytes in 1 blocks are indirectly lost in loss record 6 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA105601: ???
+==90314==    by 0xA10283E: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== 8 bytes in 1 blocks are indirectly lost in loss record 7 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA105601: ???
+==90314==    by 0xA10D7A8: ???
+==90314==    by 0xA0E4BB1: ???
+==90314==    by 0xA102BA4: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314== 
+==90314== 8 bytes in 1 blocks are indirectly lost in loss record 8 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA105601: ???
+==90314==    by 0xA10D7D4: ???
+==90314==    by 0xA0E4BB1: ???
+==90314==    by 0xA102BA4: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314== 
+==90314== 8 bytes in 1 blocks are definitely lost in loss record 9 of 148
+==90314==    at 0x48487A9: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FD379: ???
+==90314==    by 0xA0E756F: ???
+==90314==    by 0xA0EA5B1: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 9 bytes in 1 blocks are still reachable in loss record 10 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C45535: _XlcDefaultMapModifiers (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C4777A: XSetLocaleModifiers (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x488A1F3: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 12 bytes in 1 blocks are still reachable in loss record 11 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4A6958E: strdup (strdup.c:42)
+==90314==    by 0x4C3A327: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 16 bytes in 1 blocks are still reachable in loss record 12 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C455FD: _XlcAddLoader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402F5: _XlcInitLoader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47660: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 16 bytes in 1 blocks are still reachable in loss record 13 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C455FD: _XlcAddLoader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40303: _XlcInitLoader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47660: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 16 bytes in 1 blocks are still reachable in loss record 14 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C455FD: _XlcAddLoader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47660: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 16 bytes in 1 blocks are still reachable in loss record 15 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C47697: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 16 bytes in 1 blocks are indirectly lost in loss record 16 of 148
+==90314==    at 0x48487A9: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1095A2: ???
+==90314==    by 0xA0E73FF: ???
+==90314==    by 0xA0E75D4: ???
+==90314==    by 0xA0EA5B1: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314== 
+==90314== 24 bytes in 1 blocks are still reachable in loss record 17 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C33159: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2B9: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 24 bytes in 1 blocks are still reachable in loss record 18 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C396A3: _XlcResolveLocaleName (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40497: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 24 bytes in 1 blocks are indirectly lost in loss record 19 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FC72A: ???
+==90314==    by 0xA0EA804: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314==    by 0x592E575: ???
+==90314== 
+==90314== 24 bytes in 1 blocks are indirectly lost in loss record 20 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA10BF3D: ???
+==90314==    by 0xA0EA8BD: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314==    by 0x592E575: ???
+==90314== 
+==90314== 24 bytes in 1 blocks are indirectly lost in loss record 21 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA10BF3D: ???
+==90314==    by 0xA0E9689: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314== 
+==90314== 24 bytes in 1 blocks are indirectly lost in loss record 22 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0E7C67: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314== 
+==90314== 24 bytes in 1 blocks are indirectly lost in loss record 23 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0E75B1: ???
+==90314==    by 0xA0EA5B1: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314== 
+==90314== 31 bytes in 1 blocks are indirectly lost in loss record 24 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA105B5F: ???
+==90314==    by 0xA10D7E7: ???
+==90314==    by 0xA0E4BB1: ???
+==90314==    by 0xA102BA4: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314== 
+==90314== 31 bytes in 1 blocks are definitely lost in loss record 25 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1048F3: ???
+==90314==    by 0xA0EACE7: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314==    by 0x592E575: ???
+==90314== 
+==90314== 31 bytes in 1 blocks are definitely lost in loss record 26 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1048F3: ???
+==90314==    by 0xA0EACAA: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314==    by 0x592E575: ???
+==90314== 
+==90314== 32 bytes in 1 blocks are still reachable in loss record 27 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4013E4D: malloc (rtld-malloc.h:56)
+==90314==    by 0x4013E4D: allocate_dtv_entry (dl-tls.c:684)
+==90314==    by 0x4013E4D: allocate_and_init (dl-tls.c:709)
+==90314==    by 0x4013E4D: tls_get_addr_tail (dl-tls.c:907)
+==90314==    by 0x401820B: __tls_get_addr (tls_get_addr.S:55)
+==90314==    by 0xB95AEB1: ???
+==90314==    by 0xA40E0AE: ???
+==90314==    by 0xBF50315: ???
+==90314==    by 0xA380EE2: ???
+==90314==    by 0x6: ???
+==90314==    by 0x4006439: call_init.part.0 (dl-init.c:56)
+==90314==    by 0x4006567: call_init (dl-init.c:33)
+==90314==    by 0x4006567: _dl_init (dl-init.c:117)
+==90314==    by 0x4B35AF4: _dl_catch_exception (dl-error-skeleton.c:182)
+==90314==    by 0x400DFF5: dl_open_worker (dl-open.c:808)
+==90314==    by 0x400DFF5: dl_open_worker (dl-open.c:771)
+==90314== 
+==90314== 33 bytes in 1 blocks are still reachable in loss record 28 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==90314==    by 0x40271DF: strdup (strdup.c:42)
+==90314==    by 0x4016A66: _dl_load_cache_lookup (dl-cache.c:527)
+==90314==    by 0x400A981: _dl_map_object (dl-load.c:2193)
+==90314==    by 0x4003494: openaux (dl-deps.c:64)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==90314==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400E34D: _dl_open (dl-open.c:883)
+==90314== 
+==90314== 33 bytes in 1 blocks are still reachable in loss record 29 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x400DD20: malloc (rtld-malloc.h:56)
+==90314==    by 0x400DD20: _dl_new_object (dl-object.c:199)
+==90314==    by 0x4008C82: _dl_map_object_from_fd (dl-load.c:1063)
+==90314==    by 0x400A600: _dl_map_object (dl-load.c:2327)
+==90314==    by 0x4003494: openaux (dl-deps.c:64)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==90314==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400E34D: _dl_open (dl-open.c:883)
+==90314== 
+==90314== 36 bytes in 1 blocks are indirectly lost in loss record 30 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA105DF0: ???
+==90314==    by 0xA0E3177: ???
+==90314==    by 0xA0E4BF9: ???
+==90314==    by 0xA102BA4: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314== 
+==90314== 38 bytes in 1 blocks are still reachable in loss record 31 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==90314==    by 0x40271DF: strdup (strdup.c:42)
+==90314==    by 0x4016A66: _dl_load_cache_lookup (dl-cache.c:527)
+==90314==    by 0x400A981: _dl_map_object (dl-load.c:2193)
+==90314==    by 0x400E9A8: dl_open_worker_begin (dl-open.c:534)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400E34D: _dl_open (dl-open.c:883)
+==90314==    by 0x4A5163B: dlopen_doit (dlopen.c:56)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x4B35B62: _dl_catch_error (dl-error-skeleton.c:227)
+==90314== 
+==90314== 38 bytes in 1 blocks are still reachable in loss record 32 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x400DD20: malloc (rtld-malloc.h:56)
+==90314==    by 0x400DD20: _dl_new_object (dl-object.c:199)
+==90314==    by 0x4008C82: _dl_map_object_from_fd (dl-load.c:1063)
+==90314==    by 0x400A600: _dl_map_object (dl-load.c:2327)
+==90314==    by 0x400E9A8: dl_open_worker_begin (dl-open.c:534)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400E34D: _dl_open (dl-open.c:883)
+==90314==    by 0x4A5163B: dlopen_doit (dlopen.c:56)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x4B35B62: _dl_catch_error (dl-error-skeleton.c:227)
+==90314== 
+==90314== 
+==90314== 
+==90314== 38 bytes in 1 blocks are definitely lost in loss record 34 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1048F3: ???
+==90314==    by 0xA0EAAD9: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314==    by 0x592E575: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are still reachable in loss record 35 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C139E9: XInitThreads (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888DEB: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 40 bytes in 1 blocks are still reachable in loss record 36 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C13A06: XInitThreads (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888DEB: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 40 bytes in 1 blocks are still reachable in loss record 37 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C13A23: XInitThreads (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888DEB: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 40 bytes in 1 blocks are still reachable in loss record 38 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3D9A2: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 39 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA104AD7: ???
+==90314==    by 0xA103E46: ???
+==90314==    by 0xA0E966F: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 40 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA108045: ???
+==90314==    by 0xA0FC86C: ???
+==90314==    by 0xA1028CC: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 41 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA104AD7: ???
+==90314==    by 0xA103E46: ???
+==90314==    by 0xA0E79FE: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 42 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA108045: ???
+==90314==    by 0xA0E7B6C: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 43 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FC8B1: ???
+==90314==    by 0xA0E7B82: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 44 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FC8B1: ???
+==90314==    by 0xA0E7B94: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 45 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA108045: ???
+==90314==    by 0xA0E7BF4: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 46 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0F7272: ???
+==90314==    by 0xA0F82EA: ???
+==90314==    by 0xA0E7C1E: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 47 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA108045: ???
+==90314==    by 0xA0FC86C: ???
+==90314==    by 0xA0E7C4C: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are indirectly lost in loss record 48 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0F7272: ???
+==90314==    by 0xA0F910A: ???
+==90314==    by 0xA10181F: ???
+==90314==    by 0xA10195C: ???
+==90314==    by 0xA1037B0: ???
+==90314==    by 0xA103C9C: ???
+==90314==    by 0xA0E85EC: ???
+==90314==    by 0xA0FCDCB: ???
+==90314==    by 0xA0EA3BD: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314== 
+==90314== 40 bytes in 1 blocks are definitely lost in loss record 49 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA104AD7: ???
+==90314==    by 0xA10B706: ???
+==90314==    by 0xA10B76F: ???
+==90314==    by 0xA10B7DC: ???
+==90314==    by 0xA0E28F8: ???
+==90314==    by 0xA0E946B: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== 47 bytes in 5 blocks are still reachable in loss record 50 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B8F2: _XlcAddCT (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BC6F: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314== 
+==90314== 48 bytes in 1 blocks are still reachable in loss record 51 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C368C3: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31428: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DF0: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 48 bytes in 1 blocks are indirectly lost in loss record 52 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0E79C9: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314== 
+==90314== 48 bytes in 1 blocks are indirectly lost in loss record 53 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0E79DF: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314== 
+==90314== 48 bytes in 1 blocks are indirectly lost in loss record 54 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FC915: ???
+==90314==    by 0xA0E7BA6: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 48 bytes in 1 blocks are indirectly lost in loss record 55 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FC915: ???
+==90314==    by 0xA0E7BB8: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 56 bytes in 1 blocks are indirectly lost in loss record 56 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0E2801: ???
+==90314==    by 0xA10D7F0: ???
+==90314==    by 0xA0E4BB1: ???
+==90314==    by 0xA102BA4: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314== 
+==90314== 56 bytes in 1 blocks are indirectly lost in loss record 57 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0E2801: ???
+==90314==    by 0xA10D7FF: ???
+==90314==    by 0xA0E4BB1: ???
+==90314==    by 0xA102BA4: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314== 
+==90314== 56 bytes in 1 blocks are indirectly lost in loss record 58 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0E2801: ???
+==90314==    by 0xA10D80E: ???
+==90314==    by 0xA0E4BB1: ???
+==90314==    by 0xA102BA4: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314== 
+==90314== 56 bytes in 1 blocks are indirectly lost in loss record 59 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0E2801: ???
+==90314==    by 0xA1028E9: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 60 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C1D126: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C30CB3: XrmInitialize (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888DF0: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 61 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BCB8: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 62 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BCCE: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 63 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BCE4: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 64 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BCFA: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 65 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46E5C: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 66 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46E74: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 67 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46E8C: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 68 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46EA4: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 69 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46EBC: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 70 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46ED4: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 71 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46EEC: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 72 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46F04: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 73 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46F23: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 74 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46F3B: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 75 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46F53: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 76 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46F72: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 77 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46F8A: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 78 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46FA2: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 79 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46FBA: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 80 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46FD2: _XlcAddUtf8LocaleConverters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 81 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F927: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 82 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46D5B: _XlcAddUtf8Converters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F914: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 83 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46D7A: _XlcAddUtf8Converters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F914: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 84 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46D92: _XlcAddUtf8Converters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F914: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 85 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46DAA: _XlcAddUtf8Converters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F914: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 86 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46DC2: _XlcAddUtf8Converters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F914: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 87 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C46DE1: _XlcAddUtf8Converters (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F914: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are still reachable in loss record 88 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3BB96: _XlcSetConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F914: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 64 bytes in 1 blocks are indirectly lost in loss record 89 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FB35C: ???
+==90314==    by 0xA10285C: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== 64 bytes in 1 blocks are indirectly lost in loss record 90 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA10927E: ???
+==90314==    by 0xA0E7C8E: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 64 bytes in 1 blocks are indirectly lost in loss record 91 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA105DF0: ???
+==90314==    by 0xA0E49EE: ???
+==90314==    by 0xA0E4EFC: ???
+==90314==    by 0xA101178: ???
+==90314==    by 0xA101CB4: ???
+==90314==    by 0xA103C42: ???
+==90314==    by 0xA0E85EC: ???
+==90314==    by 0xA0FCD53: ???
+==90314==    by 0xA0EA3BD: ???
+==90314==    by 0xA0EA65B: ???
+==90314== 
+==90314== 64 bytes in 1 blocks are indirectly lost in loss record 92 of 148
+==90314==    at 0x48487A9: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0EF6F0: ???
+==90314==    by 0xA103965: ???
+==90314==    by 0xA103C9C: ???
+==90314==    by 0xA0E85EC: ???
+==90314==    by 0xA0FCDCB: ???
+==90314==    by 0xA0EA3BD: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314== 
+==90314== 69 bytes in 5 blocks are still reachable in loss record 93 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B751: _XlcCreateDefaultCharSet (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3EDDE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 80 bytes in 3 blocks are still reachable in loss record 94 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3ED35: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314== 
+==90314== 80 bytes in 5 blocks are still reachable in loss record 95 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B619: _XlcAddCharSet (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3EE00: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 88 bytes in 1 blocks are indirectly lost in loss record 96 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FC82F: ???
+==90314==    by 0xA1028CC: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== 88 bytes in 1 blocks are indirectly lost in loss record 97 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FC82F: ???
+==90314==    by 0xA0E7C4C: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 89 bytes in 5 blocks are still reachable in loss record 98 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B6E4: _XlcCreateDefaultCharSet (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3EDDE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 96 bytes in 1 blocks are indirectly lost in loss record 99 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0EF604: ???
+==90314==    by 0xA102899: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== 96 (24 direct, 72 indirect) bytes in 1 blocks are definitely lost in loss record 100 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA10BF3D: ???
+==90314==    by 0xA0F7E35: ???
+==90314==    by 0xA0FCB0E: ???
+==90314==    by 0xA0EA3D2: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314== 
+==90314== 104 bytes in 3 blocks are still reachable in loss record 101 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C33BE5: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35634: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35690: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3D8A7: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 112 bytes in 14 blocks are still reachable in loss record 102 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3EE16: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314== 
+==90314== 112 bytes in 1 blocks are indirectly lost in loss record 103 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA103E2F: ???
+==90314==    by 0xA0E79FE: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 136 bytes in 1 blocks are still reachable in loss record 104 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C33364: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3E909: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 152 (112 direct, 40 indirect) bytes in 1 blocks are definitely lost in loss record 105 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA103E2F: ???
+==90314==    by 0xA0E966F: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314== 
+==90314== 160 bytes in 1 blocks are indirectly lost in loss record 106 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA0F3E52: ???
+==90314==    by 0xA0F4311: ???
+==90314==    by 0xA0F443F: ???
+==90314==    by 0xA10D63D: ???
+==90314==    by 0xA0F8311: ???
+==90314==    by 0xA0E7C1E: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314== 
+==90314== 160 bytes in 1 blocks are indirectly lost in loss record 107 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA105FB1: ???
+==90314==    by 0xA108424: ???
+==90314==    by 0xA0F2B1F: ???
+==90314==    by 0xA0F445E: ???
+==90314==    by 0xA10D616: ???
+==90314==    by 0xA0F802D: ???
+==90314==    by 0xA0EA63C: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314== 
+==90314== 160 bytes in 1 blocks are indirectly lost in loss record 108 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA108EAA: ???
+==90314==    by 0xA0F4311: ???
+==90314==    by 0xA0F4394: ???
+==90314==    by 0xA0F465E: ???
+==90314==    by 0xA0F4743: ???
+==90314==    by 0xA0F852A: ???
+==90314==    by 0xA0E9FC9: ???
+==90314==    by 0xA0EA3A0: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314== 
+==90314== 168 bytes in 1 blocks are still reachable in loss record 109 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3318F: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2B9: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 176 bytes in 1 blocks are still reachable in loss record 110 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C33174: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2B9: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 182 bytes in 3 blocks are still reachable in loss record 111 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C33C1D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35634: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35690: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3D8A7: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 184 bytes in 1 blocks are indirectly lost in loss record 112 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0F716F: ???
+==90314==    by 0xA0F82EA: ???
+==90314==    by 0xA0E7C1E: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314== 
+==90314== 184 bytes in 1 blocks are indirectly lost in loss record 113 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0F716F: ???
+==90314==    by 0xA0F8005: ???
+==90314==    by 0xA0EA63C: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314== 
+==90314== 223 bytes in 1 blocks are indirectly lost in loss record 114 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA105FB1: ???
+==90314==    by 0xA108424: ???
+==90314==    by 0xA0F2B1F: ???
+==90314==    by 0xA0F795B: ???
+==90314==    by 0xA0F8553: ???
+==90314==    by 0xA0E9FC9: ???
+==90314==    by 0xA0EA3A0: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314== 
+==90314== 223 bytes in 1 blocks are indirectly lost in loss record 115 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA105FB1: ???
+==90314==    by 0xA108424: ???
+==90314==    by 0xA0F2B1F: ???
+==90314==    by 0xA0F795B: ???
+==90314==    by 0xA0F8553: ???
+==90314==    by 0xA0E9FC9: ???
+==90314==    by 0xA0EA3A0: ???
+==90314==    by 0x72328B7: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== 232 bytes in 1 blocks are indirectly lost in loss record 116 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA10280B: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314== 
+==90314== 240 bytes in 1 blocks are indirectly lost in loss record 117 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA10D74B: ???
+==90314==    by 0xA0E4BB1: ???
+==90314==    by 0xA102BA4: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314== 
+==90314== 256 bytes in 2 blocks are indirectly lost in loss record 118 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA105FB1: ???
+==90314==    by 0xA10CED1: ???
+==90314==    by 0xA0F9156: ???
+==90314==    by 0xA10181F: ???
+==90314==    by 0xA10195C: ???
+==90314==    by 0xA1037B0: ???
+==90314==    by 0xA103C9C: ???
+==90314==    by 0xA0E85EC: ???
+==90314==    by 0xA0FCDCB: ???
+==90314==    by 0xA0EA3BD: ???
+==90314== 
+==90314== 264 bytes in 1 blocks are indirectly lost in loss record 119 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0E7A16: ???
+==90314==    by 0xA0E94CF: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314== 
+==90314== 312 bytes in 2 blocks are still reachable in loss record 120 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x40162DC: calloc (rtld-malloc.h:44)
+==90314==    by 0x40162DC: _dl_check_map_versions (dl-version.c:273)
+==90314==    by 0x400ED13: dl_open_worker_begin (dl-open.c:600)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400E34D: _dl_open (dl-open.c:883)
+==90314==    by 0x4A5163B: dlopen_doit (dlopen.c:56)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x4B35B62: _dl_catch_error (dl-error-skeleton.c:227)
+==90314==    by 0x4A5112D: _dlerror_run (dlerror.c:138)
+==90314==    by 0x4A516C7: dlopen_implementation (dlopen.c:71)
+==90314==    by 0x4A516C7: dlopen@@GLIBC_2.34 (dlopen.c:81)
+==90314== 
+==90314== 360 bytes in 5 blocks are still reachable in loss record 121 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B6B6: _XlcCreateDefaultCharSet (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3EDDE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 368 bytes in 2 blocks are indirectly lost in loss record 122 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0F716F: ???
+==90314==    by 0xA0F910A: ???
+==90314==    by 0xA10181F: ???
+==90314==    by 0xA10195C: ???
+==90314==    by 0xA1037B0: ???
+==90314==    by 0xA103C9C: ???
+==90314==    by 0xA0E85EC: ???
+==90314==    by 0xA0FCDCB: ???
+==90314==    by 0xA0EA3BD: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314== 
+==90314== 404 bytes in 1 blocks are indirectly lost in loss record 123 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA104D1C: ???
+==90314==    by 0xA10B71D: ???
+==90314==    by 0xA10B76F: ???
+==90314==    by 0xA10B7DC: ???
+==90314==    by 0xA0E28F8: ???
+==90314==    by 0xA0E946B: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== 404 bytes in 1 blocks are indirectly lost in loss record 124 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA104D1C: ???
+==90314==    by 0xA1051B0: ???
+==90314==    by 0xA10529C: ???
+==90314==    by 0xA104196: ???
+==90314==    by 0xA0EA0E9: ???
+==90314==    by 0xA0EA3A0: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314== 
+==90314== 520 bytes in 13 blocks are definitely lost in loss record 125 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA108045: ???
+==90314==    by 0xA0FC6FC: ???
+==90314==    by 0xA0EA804: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314==    by 0x590F1B3: ???
+==90314==    by 0x590F2F7: ???
+==90314==    by 0x5939D37: ???
+==90314== 
+==90314== 567 (184 direct, 383 indirect) bytes in 1 blocks are definitely lost in loss record 126 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0F716F: ???
+==90314==    by 0xA0F84DF: ???
+==90314==    by 0xA0E9FC9: ???
+==90314==    by 0xA0EA3A0: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314==    by 0x71D6D8A: ???
+==90314== 
+==90314== 633 bytes in 49 blocks are still reachable in loss record 127 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B751: _XlcCreateDefaultCharSet (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BABA: _XlcAddCT (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BC6F: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 800 bytes in 50 blocks are still reachable in loss record 128 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B619: _XlcAddCharSet (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BACE: _XlcAddCT (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BC6F: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 802 bytes in 88 blocks are still reachable in loss record 129 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C33CF6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35634: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35690: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3D8A7: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 1,028 bytes in 50 blocks are still reachable in loss record 130 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B6E4: _XlcCreateDefaultCharSet (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BABA: _XlcAddCT (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BC6F: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 1,092 bytes in 91 blocks are still reachable in loss record 131 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4A6958E: strdup (strdup.c:42)
+==90314==    by 0x4C35449: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35690: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3D8A7: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 1,203 bytes in 1 blocks are still reachable in loss record 132 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x400DA02: calloc (rtld-malloc.h:44)
+==90314==    by 0x400DA02: _dl_new_object (dl-object.c:92)
+==90314==    by 0x4008C82: _dl_map_object_from_fd (dl-load.c:1063)
+==90314==    by 0x400A600: _dl_map_object (dl-load.c:2327)
+==90314==    by 0x4003494: openaux (dl-deps.c:64)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==90314==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400E34D: _dl_open (dl-open.c:883)
+==90314== 
+==90314== 1,208 bytes in 1 blocks are still reachable in loss record 133 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x400DA02: calloc (rtld-malloc.h:44)
+==90314==    by 0x400DA02: _dl_new_object (dl-object.c:92)
+==90314==    by 0x4008C82: _dl_map_object_from_fd (dl-load.c:1063)
+==90314==    by 0x400A600: _dl_map_object (dl-load.c:2327)
+==90314==    by 0x400E9A8: dl_open_worker_begin (dl-open.c:534)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x400E34D: _dl_open (dl-open.c:883)
+==90314==    by 0x4A5163B: dlopen_doit (dlopen.c:56)
+==90314==    by 0x4B35A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==90314==    by 0x4B35B62: _dl_catch_error (dl-error-skeleton.c:227)
+==90314== 
+==90314== 1,341 bytes in 91 blocks are still reachable in loss record 134 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4A6958E: strdup (strdup.c:42)
+==90314==    by 0x4C355B5: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35690: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3D8A7: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 1,360 bytes in 17 blocks are still reachable in loss record 135 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C33335: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3E909: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 1,408 bytes in 88 blocks are still reachable in loss record 136 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C33CD5: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35634: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35690: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3D8A7: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 1,870 bytes in 1 blocks are indirectly lost in loss record 137 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA105FB1: ???
+==90314==    by 0xA0F92CC: ???
+==90314==    by 0xA10181F: ???
+==90314==    by 0xA10195C: ???
+==90314==    by 0xA1037B0: ???
+==90314==    by 0xA103C9C: ???
+==90314==    by 0xA0E85EC: ???
+==90314==    by 0xA0FCDCB: ???
+==90314==    by 0xA0EA3BD: ???
+==90314==    by 0x72328B7: ???
+==90314== 
+==90314== 2,048 bytes in 1 blocks are still reachable in loss record 138 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3DAA2: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 2,056 bytes in 1 blocks are indirectly lost in loss record 139 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA107057: ???
+==90314==    by 0xA101EE7: ???
+==90314==    by 0xA103C42: ???
+==90314==    by 0xA0E85EC: ???
+==90314==    by 0xA0FCD53: ???
+==90314==    by 0xA0EA3BD: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314== 
+==90314== 2,056 bytes in 1 blocks are indirectly lost in loss record 140 of 148
+==90314==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA1053F4: ???
+==90314==    by 0xA107487: ???
+==90314==    by 0xA103986: ???
+==90314==    by 0xA103C9C: ???
+==90314==    by 0xA0E85EC: ???
+==90314==    by 0xA0FCDCB: ???
+==90314==    by 0xA0EA3BD: ???
+==90314==    by 0xA0EA65B: ???
+==90314==    by 0xA0EA913: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314== 
+==90314== 2,208 bytes in 1 blocks are still reachable in loss record 141 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3D947: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314== 
+==90314== 2,631 bytes in 50 blocks are still reachable in loss record 142 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B84F: _XlcAddCT (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BC6F: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314== 
+==90314== 3,600 bytes in 50 blocks are still reachable in loss record 143 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C3B6B6: _XlcCreateDefaultCharSet (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BABA: _XlcAddCT (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BC6F: _XlcInitCTInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C40386: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 3,640 bytes in 91 blocks are still reachable in loss record 144 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C35431: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C35690: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3D8A7: _XlcCreateLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C404CF: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402C6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314== 
+==90314== 8,176 bytes in 1 blocks are still reachable in loss record 145 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C1BD95: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C1D105: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C30CB3: XrmInitialize (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888DF0: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 8,176 bytes in 1 blocks are still reachable in loss record 146 of 148
+==90314==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C1D299: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3D691: _XlcGetLocaleDataBase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3F491: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C402D2: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3A2DC: _XlcCreateLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C5F8C9: _XlcUtf8Loader (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47685: _XOpenLC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C47A9E: _XrmInitParseInfo (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31A84: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C31DC2: XrmGetStringDatabase (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4888E52: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314== 
+==90314== 8,192 bytes in 1 blocks are still reachable in loss record 147 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0x4C1CF8A: _XrmInternalStringToQuark (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C45CEB: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3289A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C3BF0B: _XlcOpenConverter (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C4B439: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C4EA5F: _XimProtoOpenIM (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x4C4BA8F: _XimOpenIM (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==90314==    by 0x488A205: glfwInit (in /usr/lib/x86_64-linux-gnu/libglfw.so.3.3)
+==90314==    by 0x404DFF: mlx_init (in /home/jbergos/Projets_git/42-cub3d/cub3d)
+==90314==    by 0x402577: start_the_game (render.c:51)
+==90314==    by 0x4030D0: main (main.c:66)
+==90314== 
+==90314== 10,749 (64 direct, 10,685 indirect) bytes in 1 blocks are definitely lost in loss record 148 of 148
+==90314==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==90314==    by 0xA0FB35C: ???
+==90314==    by 0xA102883: ???
+==90314==    by 0xA10AD9D: ???
+==90314==    by 0xA10C679: ???
+==90314==    by 0xA0FD964: ???
+==90314==    by 0xA0E94B9: ???
+==90314==    by 0xA0EA9D6: ???
+==90314==    by 0x721B95E: ???
+==90314==    by 0x723285F: ???
+==90314==    by 0x76B2894: ???
+==90314==    by 0x71CA963: ???
+==90314== 
+==90314== LEAK SUMMARY:
+==90314==    definitely lost: 1,052 bytes in 25 blocks
+==90314==    indirectly lost: 11,180 bytes in 59 blocks
+==90314==      possibly lost: 0 bytes in 0 blocks
+==90314==    still reachable: 53,846 bytes in 824 blocks
+==90314==         suppressed: 0 bytes in 0 blocks
+==90314== 
+==90314== For lists of detected and suppressed errors, rerun with: -s
+==90314== ERROR SUMMARY: 11 errors from 11 contexts (suppressed: 0 from 0)

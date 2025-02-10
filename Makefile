@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/13 03:07:54 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/13 03:08:20 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,8 @@ SUCCESS		= $(GREEN)[SUCCESS]$(RESET)
 INFO		= $(CYAN)[INFO]$(RESET)
 
 WIN_SIZE	= \
-	-D WIN_WIDTH=$$(xrandr --current | grep '*' | uniq | awk '{print $$1}' | cut -d 'x' -f1) \
-	-D WIN_HEIGHT=$$(xrandr --current | grep '*' | uniq | awk '{print $$1}' | cut -d 'x' -f2)
+	-D WIN_WIDTH=$$(xrandr --current | grep '*' | head -n1 | awk '{print $$1}' | cut -d 'x' -f1) \
+	-D WIN_HEIGHT=$$(xrandr --current | grep '*' | head -n1 | awk '{print $$1}' | cut -d 'x' -f2)
 
 all: $(NAME)
 

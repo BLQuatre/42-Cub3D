@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:53:33 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/08 10:33:17 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/10 11:48:05 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void	move_player(t_mlx *mlx, double move_x, double move_y)
 	new_y = roundf(mlx->player->plyr_y + move_y);
 	map_grid_x = (new_x / TILE_SIZE);
 	map_grid_y = (new_y / TILE_SIZE);
-	if (mlx->dt->map2d[map_grid_y][map_grid_x] != '1' && \
-	(mlx->dt->map2d[map_grid_y][mlx->player->plyr_x / TILE_SIZE] != '1' && \
-	mlx->dt->map2d[mlx->player->plyr_y / TILE_SIZE][map_grid_x] != '1'))
+	if (mlx->game->maps.map[map_grid_y][map_grid_x] != '1' && \
+	(mlx->game->maps.map[map_grid_y][mlx->player->plyr_x / TILE_SIZE] != '1' && \
+	mlx->game->maps.map[mlx->player->plyr_y / TILE_SIZE][map_grid_x] != '1'))
 	{
 		mlx->player->plyr_x = new_x;
 		mlx->player->plyr_y = new_y;

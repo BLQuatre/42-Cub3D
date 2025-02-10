@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 20:31:34 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/07 20:34:34 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/10 12:14:54 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	ft_exit(t_mlx *mlx)
 {
 	int 	i = 0;
-	while (mlx->dt->map2d[i])
-		free(mlx->dt->map2d[i++]);
-	free(mlx->dt->map2d);
-	free(mlx->dt);
+	while (mlx->game->maps.map[i])
+		free(mlx->game->maps.map[i++]);
+	free(mlx->game->maps.map);
+	free(mlx->game);
 	free(mlx->player);
 	free(mlx->ray);
 	mlx_delete_image(mlx->mlx_p, mlx->img);

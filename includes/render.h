@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/08 17:53:36 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/10 11:51:02 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,19 @@ typedef struct s_data
 	int h_map;
 } t_data;
 
+
 typedef struct s_mlx
 {
 	mlx_image_t	*img;
 	mlx_t		*mlx_p;
 	t_ray		*ray;
-	t_data		*dt;
+	t_game		*game;
 	t_player	*player;
 }	t_mlx;
 
 void	game_loop(void *ml);
 void	init_the_player(t_mlx mlx);
-void	start_the_game(t_data *dt);
+void	start_the_game(t_game *game);
 int		unit_circle(float angle, char c);
 int		inter_check(float angle, float *inter, float *step, int is_horizon);
 int		wall_hit(float x, float y, t_mlx *mlx);
