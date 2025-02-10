@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:39:50 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/06 18:52:05 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/10 13:33:56 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ const char	*g_colors[] = {
 	"\033[97m"
 };
 
-void	debug(t_color color, const char *tag, const char *format, ...)
+void	debug(t_debug_color color, const char *tag, const char *format, ...)
 {
 	char	buffer[1024];
 	va_list	args;

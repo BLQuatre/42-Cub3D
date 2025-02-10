@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:56:23 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/06 19:43:33 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/10 13:33:01 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	debug_show_game(t_game *game)
 	debug(GREEN, "GAME", "\tsouth_texture: `%s`", game->south_texture);
 	debug(GREEN, "GAME", "\twest_texture: `%s`", game->west_texture);
 	debug(GREEN, "GAME", "\teast_texture: `%s`", game->east_texture);
-	debug_get_color_str(game->floor_color, buffer);
+	debug_get_color_str(t_color_to_uint(game->floor_color), buffer);
 	debug(GREEN, "GAME", "\tfloor_color: `%s` (%u)",
-		buffer, game->floor_color);
-	debug_get_color_str(game->celling_color, buffer);
+		buffer, t_color_to_uint(game->floor_color));
+	debug_get_color_str(t_color_to_uint(game->celling_color), buffer);
 	debug(GREEN, "GAME", "\tcelling_color: `%s` (%u)",
-		buffer, game->celling_color);
+		buffer, t_color_to_uint(game->celling_color));
 	debug(GREEN, "GAME", "\tmap: (%p)", &game->map);
 	debug(GREEN, "GAME", "}");
 }

@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   arrays.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 18:02:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/10 13:34:35 by cauvray          ###   ########.fr       */
+/*   Created: 2025/02/09 23:14:53 by cauvray           #+#    #+#             */
+/*   Updated: 2025/02/10 13:32:08 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "debug.h"
+#include "cub3d.h"
 
-void	debug_show_vector(t_vector *vector)
+void	array_free(char **array)
 {
-	debug(GREEN, "VEC", "t_vector: (%p)", vector);
-	if (!vector)
+	int	i;
+
+	if (!array)
 		return ;
-	debug(GREEN, "VEC", "{");
-	debug(GREEN, "VEC", "\tx: %d", vector->x);
-	debug(GREEN, "VEC", "\ty: %d", vector->y);
-	debug(GREEN, "VEC", "}");
+	i = 0;
+	while (array[i++])
+		free(array[i]);
+	free(array);
+}
+
+int	array_len(char **array)
+{
+	int	i;
+
+	if (!array)
+		return (0);
+	i = 0;
+	while (array[i])
+		i++;
+	return (i);
 }

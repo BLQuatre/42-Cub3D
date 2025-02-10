@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 18:02:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/10 13:34:35 by cauvray          ###   ########.fr       */
+/*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
+/*   Updated: 2025/02/10 13:52:31 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "debug.h"
+#include "cub3d.h"
 
-void	debug_show_vector(t_vector *vector)
+t_game	*init_game(void)
 {
-	debug(GREEN, "VEC", "t_vector: (%p)", vector);
-	if (!vector)
-		return ;
-	debug(GREEN, "VEC", "{");
-	debug(GREEN, "VEC", "\tx: %d", vector->x);
-	debug(GREEN, "VEC", "\ty: %d", vector->y);
-	debug(GREEN, "VEC", "}");
+	t_game	*game;
+
+	game = (t_game *) ft_calloc(1, sizeof(t_game));
+	if (!game)
+		return (NULL);
+	return (game);
+}
+
+void	free_game(t_game *game)
+{
+	free_map(game->map);
+	free(game->north_texture);
+	free(game->south_texture);
+	free(game->west_texture);
+	free(game->east_texture);
+	free(game->floor_color);
+	free(game->celling_color);
+	free(game);
+	game = NULL;
 }

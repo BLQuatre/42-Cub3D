@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:03:08 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/06 19:43:17 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/10 13:33:45 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-typedef enum e_color
+typedef enum e_debug_color
 {
 	BLACK,
 	RED,
@@ -35,9 +35,9 @@ typedef enum e_color
 	BRIGHT_MAGENTA,
 	BRIGHT_CYAN,
 	BRIGHT_WHITE
-}	t_color;
+}	t_debug_color;
 
-void	debug(t_color color, const char *tag, const char *format, ...);
+void	debug(t_debug_color color, const char *tag, const char *format, ...);
 
 void	debug_get_color_str(uint32_t rgba, char buffer[27]);
 

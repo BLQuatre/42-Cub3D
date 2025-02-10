@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 18:02:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/10 13:34:35 by cauvray          ###   ########.fr       */
+/*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
+/*   Updated: 2025/02/10 13:42:43 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "debug.h"
+#include "cub3d.h"
 
-void	debug_show_vector(t_vector *vector)
+t_map	*init_map(void)
 {
-	debug(GREEN, "VEC", "t_vector: (%p)", vector);
-	if (!vector)
-		return ;
-	debug(GREEN, "VEC", "{");
-	debug(GREEN, "VEC", "\tx: %d", vector->x);
-	debug(GREEN, "VEC", "\ty: %d", vector->y);
-	debug(GREEN, "VEC", "}");
+	t_map	*map;
+
+	map = (t_map *) ft_calloc(1, sizeof(t_map));
+	if (!map)
+		return (NULL);
+	return (map);
+}
+
+void	free_map(t_map *map)
+{
+	array_free(map->map);
+	free(map);
+	map = NULL;
 }
