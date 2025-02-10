@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/10 11:51:02 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/10 14:26:25 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_mlx
 }	t_mlx;
 
 void	game_loop(void *ml);
-void	init_the_player(t_mlx mlx);
+void	init_the_player(t_mlx *mlx);
 void	start_the_game(t_game *game);
 int		unit_circle(float angle, char c);
 int		inter_check(float angle, float *inter, float *step, int is_horizon);
@@ -94,5 +94,5 @@ void	mlx_key(mlx_key_data_t keydata, void *ml);
 void	rotate_player(t_mlx *mlx, int i);
 void	move_player(t_mlx *mlx, double move_x, double move_y);
 void	hook(t_mlx *mlx, double move_x, double move_y);
-void	ft_exit(t_mlx *mlx);
+void	ft_exit(void *v_mlx);
 #endif

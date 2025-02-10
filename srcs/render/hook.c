@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:53:33 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/10 11:48:05 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/10 14:46:19 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	mlx_key(mlx_key_data_t keydata, void *ml)
 {
 	t_mlx *mlx;
 
-	mlx = ml;
+	mlx = (t_mlx *)ml;
 	if (keydata.key == MLX_KEY_ESCAPE && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-		ft_exit(mlx);
+		ft_exit(ml);
 	else if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS))
 		mlx->player->l_r = -1;
 	else if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS))
@@ -77,9 +77,9 @@ void	move_player(t_mlx *mlx, double move_x, double move_y)
 	new_y = roundf(mlx->player->plyr_y + move_y);
 	map_grid_x = (new_x / TILE_SIZE);
 	map_grid_y = (new_y / TILE_SIZE);
-	if (mlx->game->maps.map[map_grid_y][map_grid_x] != '1' && \
-	(mlx->game->maps.map[map_grid_y][mlx->player->plyr_x / TILE_SIZE] != '1' && \
-	mlx->game->maps.map[mlx->player->plyr_y / TILE_SIZE][map_grid_x] != '1'))
+	if (mlx->game->maps->map[map_grid_y][map_grid_x] != '1' && \
+	(mlx->game->maps->map[map_grid_y][mlx->player->plyr_x / TILE_SIZE] != '1' && \
+	mlx->game->maps->map[mlx->player->plyr_y / TILE_SIZE][map_grid_x] != '1'))
 	{
 		mlx->player->plyr_x = new_x;
 		mlx->player->plyr_y = new_y;

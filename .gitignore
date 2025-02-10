@@ -8,6 +8,8 @@
 *.a
 
 cub3d
+error
+latest.log
 
 libft/
 mlx42_src/

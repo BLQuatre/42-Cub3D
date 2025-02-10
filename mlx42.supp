@@ -46,3 +46,10 @@
 	...
 	fun:_dl_open
 }
+
+{
+	<MLX42>
+	Memcheck:Leak
+	...
+	obj:/usr/lib/x86_64-linux-gnu/libdrm*
+}
