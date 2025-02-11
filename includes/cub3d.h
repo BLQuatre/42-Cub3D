@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:58:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/10 13:50:47 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/11 17:40:40 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void		free_map(t_map *map);
 // Colors
 t_color		*uint_to_t_color(const uint32_t rgba);
 uint32_t	t_color_to_uint(const t_color *color);
+uint32_t	rgba_to_uint(int r, int g, int b, int a);
 
 // Arrays
 void		array_free(char **array);
