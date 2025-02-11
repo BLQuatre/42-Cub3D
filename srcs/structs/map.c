@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/10 13:42:43 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/11 22:02:35 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_map	*init_map(void)
 
 void	free_map(t_map *map)
 {
+	if (!map)
+		return ;
 	array_free(map->map);
 	free(map);
 	map = NULL;

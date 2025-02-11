@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/10 13:52:31 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/11 22:02:29 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_game	*init_game(void)
 
 void	free_game(t_game *game)
 {
+	if (!game)
+		return ;
 	free_map(game->map);
 	free(game->north_texture);
 	free(game->south_texture);
