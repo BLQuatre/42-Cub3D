@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:00:08 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/10 20:24:05 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/11 18:46:31 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	unit_circle(float angle, char c)
 	return (0);
 }
 
-int inter_check(float angle, float *inter, float *step, int is_horizon)
+int	inter_check(float angle, float *inter, float *step, int is_horizon)
 {
 	if (is_horizon)
 	{
@@ -52,22 +52,23 @@ int inter_check(float angle, float *inter, float *step, int is_horizon)
 
 int	wall_hit(float x, float y, t_mlx *mlx)
 {
-	int x_m;
-	int y_m;
+	int	x_m;
+	int	y_m;
 
-	if (x < 0 || y < 0)
+	if (x <= 0 || y <= 0)
 		return (0);
 	x_m = floor(x / TILE_SIZE);
 	y_m = floor(y / TILE_SIZE);
 	if ((y_m >= mlx->game->map->max_h || x_m >= mlx->game->map->max_w))
 		return (0);
-	if (mlx->game->map->map[y_m] && x_m <= (int)strlen(mlx->game->map->map[y_m]))
+	if (mlx->game->map->map[y_m] && x_m <= \
+	(int)strlen(mlx->game->map->map[y_m]))
 		if (mlx->game->map->map[y_m][x_m] == '1')
 			return (0);
 	return (1);
 }
 
-float get_h_inter(t_mlx *mlx, float angl)
+float	get_h_inter(t_mlx *mlx, float angl)
 {
 	float	h_x;
 	float	h_y;
@@ -80,7 +81,8 @@ float get_h_inter(t_mlx *mlx, float angl)
 	h_y = floor(mlx->player->plyr_y / TILE_SIZE) * TILE_SIZE;
 	pixel = inter_check(angl, &h_y, &y_step, 1);
 	h_x = mlx->player->plyr_x + (h_y - mlx->player->plyr_y) / tan(angl);
-	if ((unit_circle(angl, 'y') && x_step > 0) || (!unit_circle(angl, 'y') && x_step < 0))
+	if ((unit_circle(angl, 'y') && x_step > 0) || \
+	(!unit_circle(angl, 'y') && x_step < 0))
 		x_step *= -1;
 	while (wall_hit(h_x, h_y - pixel, mlx))
 	{
@@ -89,10 +91,11 @@ float get_h_inter(t_mlx *mlx, float angl)
 	}
 	mlx->ray->h_x = h_x;
 	mlx->ray->h_y = h_y;
-	return (sqrt(pow(h_x - mlx->player->plyr_x, 2) + pow(h_y - mlx->player->plyr_y, 2)));
+	return (sqrt(pow(h_x - mlx->player->plyr_x, 2) + \
+	pow(h_y - mlx->player->plyr_y, 2)));
 }
 
-float get_v_ibnter(t_mlx *mlx, float angl)
+float	get_v_ibnter(t_mlx *mlx, float angl)
 {
 	float	v_x;
 	float	v_y;
@@ -105,7 +108,8 @@ float get_v_ibnter(t_mlx *mlx, float angl)
 	v_x = floor(mlx->player->plyr_x / TILE_SIZE) * TILE_SIZE;
 	pixel = inter_check(angl, &v_x, &x_step, 0);
 	v_y = mlx->player->plyr_y + (v_x - mlx->player->plyr_x) * tan(angl);
-	if ((unit_circle(angl, 'x') && y_step < 0) || (!unit_circle(angl, 'x') && y_step > 0))
+	if ((unit_circle(angl, 'x') && y_step < 0) || \
+	(!unit_circle(angl, 'x') && y_step > 0))
 		y_step *= -1;
 	while (wall_hit(v_x - pixel, v_y, mlx))
 	{
@@ -114,7 +118,8 @@ float get_v_ibnter(t_mlx *mlx, float angl)
 	}
 	mlx->ray->v_x = v_x;
 	mlx->ray->v_y = v_y;
-	return (sqrt(pow(v_x - mlx->player->plyr_x, 2) + pow(v_y - mlx->player->plyr_y, 2)));
+	return (sqrt(pow(v_x - mlx->player->plyr_x, 2) + \
+	pow(v_y - mlx->player->plyr_y, 2)));
 }
 
 void	cast_rays(t_mlx *mlx)
@@ -131,7 +136,9 @@ void	cast_rays(t_mlx *mlx)
 		h_inter = get_h_inter(mlx, nor_angle(mlx->ray->ray_a));
 		v_inter = get_v_ibnter(mlx, nor_angle(mlx->ray->ray_a));
 		if (v_inter <= h_inter)
+		{
 			mlx->ray->dist = v_inter;
+		}
 		else
 		{
 			mlx->ray->dist = h_inter;

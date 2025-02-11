@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:31:34 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/10 20:38:07 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/11 09:28:32 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ mlx_texture_t	*get_texture(t_mlx *mlx, int flag)
 	}
 }
 
-int reverse_bytes(int c)
+int	reverse_bytes(int c)
 {
-	unsigned int 	b;
+	unsigned int	b;
 
 	b = 0;
 	b |= (c & 0xFF) << 24;
 	b |= (c & 0xFF00) << 8;
 	b |= (c & 0xFF0000) >> 8;
 	b |= (c & 0xFF000000) >> 24;
-	return (b); 
+	return (b);
 }

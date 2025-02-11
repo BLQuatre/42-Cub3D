@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/10 20:41:19 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/11 16:32:18 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define _USE_MATH_DEFINES
 # include <math.h>
 # include <string.h>
+#include <stdio.h>
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
@@ -59,15 +60,6 @@ typedef struct s_ray
 	int		index;
 	int		flag;
 } t_ray;
-
-typedef struct s_data
-{
-	char **map2d;
-	int p_x;
-	int p_y;
-	int w_map;
-	int h_map;
-} t_data;
 
 typedef struct s_texture
 {

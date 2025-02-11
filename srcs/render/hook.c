@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:53:33 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/10 15:56:40 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/11 19:32:46 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ void	ft_reles(mlx_key_data_t keydata, t_mlx *mlx)
 
 void	mlx_key(mlx_key_data_t keydata, void *ml)
 {
-	t_mlx *mlx;
+	t_mlx	*mlx;
 
 	mlx = (t_mlx *)ml;
-	if (keydata.key == MLX_KEY_ESCAPE && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+	if (keydata.key == MLX_KEY_ESCAPE && (keydata.action == MLX_PRESS || \
+	keydata.action == MLX_REPEAT))
 		ft_exit(ml);
 	else if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS))
 		mlx->player->l_r = -1;
@@ -68,18 +69,19 @@ void	rotate_player(t_mlx *mlx, int i)
 
 void	move_player(t_mlx *mlx, double move_x, double move_y)
 {
-	int map_grid_y;
-	int map_grid_x;
-	int new_x;
-	int new_y;
+	int	map_grid_y;
+	int	map_grid_x;
+	int	new_x;
+	int	new_y;
 
-	new_x = roundf(mlx->player->plyr_x + move_x);
-	new_y = roundf(mlx->player->plyr_y + move_y);
-	map_grid_x = (new_x / TILE_SIZE);
-	map_grid_y = (new_y / TILE_SIZE);
+	new_x = round(mlx->player->plyr_x + move_x);
+	new_y = round(mlx->player->plyr_y + move_y);
+	map_grid_x = ((new_x)/ TILE_SIZE);
+	map_grid_y = ((new_y)/ TILE_SIZE);
+	// printf("y : %d, x : %d\n", mlx->player->l_r, mlx->player->u_d);
 	if (mlx->game->map->map[map_grid_y][map_grid_x] != '1' && \
-	(mlx->game->map->map[map_grid_y][mlx->player->plyr_x / TILE_SIZE] != '1' && \
-	mlx->game->map->map[mlx->player->plyr_y / TILE_SIZE][map_grid_x] != '1'))
+	(mlx->game->map->map[map_grid_y][(int)((mlx->player->plyr_x + move_x - 1) / TILE_SIZE)] != '1' && \
+	mlx->game->map->map[(int)((mlx->player->plyr_y + move_y - 1) / TILE_SIZE)][map_grid_x] != '1'))
 	{
 		mlx->player->plyr_x = new_x;
 		mlx->player->plyr_y = new_y;

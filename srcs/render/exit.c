@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 20:31:34 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/10 21:01:45 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/11 09:40:43 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	ft_exit(void *ml)
 	int	i = 0;
 	while (mlx->game->map->map[i])
 		free(mlx->game->map->map[i++]);
-	
-	// free_game(mlx->game);
 	free(mlx->game->map->map);
 	free(mlx->game->map);
 	free(mlx->game->celling_color);
