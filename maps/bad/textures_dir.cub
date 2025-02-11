@@ -1,6 +1,6 @@
-NO textures/test/north.xpm
-SO textures/test/south.xpm
-WE textures/test/west.xpm
+NO textures/test/north.png
+SO textures/test/south.png
+WE textures/test/west.png
 EA textures/test/
 
 F 20,20,20
