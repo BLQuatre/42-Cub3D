@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:58:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/11 17:46:12 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/12 01:38:36 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include "MLX42/MLX42.h"
 # include "libft.h"
+# include "messages.h"
 
 typedef struct s_vector
 {
@@ -48,7 +49,28 @@ typedef struct s_game
 	t_color		*floor_color;
 	t_color		*celling_color;
 	t_map		*map;
+	t_list		*errors;
 }	t_game;
+
+/*** Core */
+// Errors
+void		add_error(t_list **lst, char *msg);
+void		show_errors(t_list **errors);
+void		quit(t_game *game, int exit_code);
+
+/*** Parsing */
+// Game
+void		handle_game(t_game *game, char *file);
+
+// Textures
+bool		handle_texture(t_game *game, char *raw_line);
+bool		check_textures(t_game *game);
+void		handle_invalid_textures(t_game *game, char *texture,
+				char *direction);
+void		handle_missing_textures(t_game *game);
+
+// Colors
+t_color		*handle_color(char *str_color);
 
 /*** Structs */
 // Game
@@ -68,5 +90,8 @@ uint32_t	rgba_to_uint(int r, int g, int b, int a);
 // Arrays
 void		array_free(char **array);
 int			array_len(char **array);
+
+// Extension
+bool		is_valid_extension(char *file, char *extension);
 
 #endif

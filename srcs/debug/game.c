@@ -6,12 +6,12 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:56:23 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/10 13:56:07 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/12 01:07:32 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "debug.h"
-#include "maps.h"
+#include "parsing.h"
 
 void	debug_show_game(t_game *game)
 {
