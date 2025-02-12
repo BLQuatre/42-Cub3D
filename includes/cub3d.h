@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:58:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/12 01:38:36 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/12 16:12:40 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,24 @@ typedef struct s_game
 
 /*** Core */
 // Errors
-void		add_error(t_list **lst, char *msg);
-void		show_errors(t_list **errors);
+void		add_error(t_game *game, char *msg);
+void		show_errors(t_game *game);
 void		quit(t_game *game, int exit_code);
 
 /*** Parsing */
 // Game
 void		handle_game(t_game *game, char *file);
 
+// Map
+void		handle_map(t_game *game, int map_fd);
+
 // Textures
-bool		handle_texture(t_game *game, char *raw_line);
 bool		check_textures(t_game *game);
 void		handle_invalid_textures(t_game *game, char *texture,
 				char *direction);
 void		handle_missing_textures(t_game *game);
+bool		handle_texture(t_game *game, char *raw_line);
+void		handle_textures(t_game *game, int map_fd);
 
 // Colors
 t_color		*handle_color(char *str_color);
@@ -93,5 +97,8 @@ int			array_len(char **array);
 
 // Extension
 bool		is_valid_extension(char *file, char *extension);
+
+// Newline
+void		remove_end_newline(char *line);
 
 #endif

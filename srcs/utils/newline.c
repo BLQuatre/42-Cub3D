@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   newline.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 15:14:28 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/12 11:21:24 by cauvray          ###   ########.fr       */
+/*   Created: 2025/02/12 15:43:54 by cauvray           #+#    #+#             */
+/*   Updated: 2025/02/12 15:44:04 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include "cub3d.h"
 
-# include <fcntl.h>
-# include <stdio.h>
-# include "cub3d.h"
-# include "libft.h"
-# include "get_next_line.h"
+void	remove_end_newline(char *line)
+{
+	int	newline_i;
 
-# define FILE_EXT ".cub"
-# define TEXTURE_EXT ".png"
-# define MAP_CHARS "10DNSEW"
-
-# define NORTH_ID "NO "
-# define SOUTH_ID "SO "
-# define WEST_ID "WE "
-# define EAST_ID "EA "
-# define FLOOR_ID "F "
-# define CELLING_ID "C "
-
-#endif
+	if (!line || !line[0])
+		return ;
+	newline_i = ft_strlen(line) - 1;
+	if (line[newline_i] == '\n')
+		line[newline_i] = '\0';
+}

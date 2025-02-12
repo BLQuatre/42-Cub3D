@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/12 01:40:41 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/12 15:45:22 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,12 @@ MLX_LIB		= $(MLX_DIR)/$(MLX_FILE)
 
 RAW_FILES	=	debug/debug debug/vector debug/map debug/game debug/color	\
 				\
-				utils/arrays utils/colors utils/extension					\
+				utils/arrays utils/colors utils/extension utils/newline		\
 				\
 				structs/game structs/map									\
 				\
-				parsing/colors parsing/game parsing/textures_errors			\
-				parsing/textures											\
+				parsing/colors parsing/game parsing/map						\
+				parsing/textures_errors parsing/textures					\
 				\
 				core/cub3d core/errors
 

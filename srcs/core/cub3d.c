@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:25:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/12 01:35:29 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/12 11:02:46 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 static bool	is_valid_args(int ac, char **av, t_game *game)
 {
 	if (ac != 2)
-		return (add_error(&game->errors, ft_strdup(USAGE_ERROR_MSG)), false);
+		return (add_error(game, ft_strdup(USAGE_ERROR_MSG)), false);
 	if (!is_valid_extension(av[1], FILE_EXT))
-		return (add_error(&game->errors,
-				ft_strdup(INVALID_MAP_EXT_MSG)), false);
+		return (add_error(game, ft_strdup(INVALID_MAP_EXT_MSG)), false);
 	return (true);
 }
 
