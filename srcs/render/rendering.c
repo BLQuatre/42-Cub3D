@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:14:16 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/11 19:25:55 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/12 18:25:50 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	draw_wall(t_mlx *mlx, int t_pix, int b_pix, double wall_h)
 	double			factor;
 
 	texture = get_texture(mlx, mlx->ray->flag);
+	// mlx->ray->door = 0;
 	arr = (uint32_t *)texture->pixels;
 	factor = (double)texture->height / wall_h;
 	x_o = get_x_o(texture, mlx);

@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/11 16:32:18 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/12 22:08:48 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 
 # define TILE_SIZE 30
 # define FOV 60
-# define ROT_SPEED 0.045
+# define ROT_SPEED 0.0095
 # define P_SPEED 4
 
 typedef struct s_player
@@ -59,6 +59,9 @@ typedef struct s_ray
 	double	v_y;
 	int		index;
 	int		flag;
+	int		door_h;
+	int		door_v;
+	int		door;
 } t_ray;
 
 typedef struct s_texture
@@ -67,6 +70,7 @@ typedef struct s_texture
 	mlx_texture_t	*so;
 	mlx_texture_t	*ea;
 	mlx_texture_t	*we;
+	mlx_texture_t	*door;
 } t_texture;
 
 typedef struct s_mlx
@@ -103,4 +107,6 @@ void	ft_exit(void *v_mlx);
 void	add_texture(t_mlx *mlx);
 mlx_texture_t	*get_texture(t_mlx *mlx, int flag);
 int reverse_bytes(int c);
+void	mouse(mouse_key_t button, action_t action, modifier_key_t mod, void *ml);
+void	cursor_mouse(double xpos, double ypos, void *ml);
 #endif

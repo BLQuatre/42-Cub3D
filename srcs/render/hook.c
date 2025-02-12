@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:53:33 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/11 19:32:46 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/12 22:02:47 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,14 @@ void	rotate_player(t_mlx *mlx, int i)
 		mlx->player->angle += ROT_SPEED;
 		if (mlx->player->angle > 2 * M_PI)
 			mlx->player->angle -= 2 * M_PI;
+		// mlx->player->rot = 0;
 	}
 	else
 	{
 		mlx->player->angle -= ROT_SPEED;
 		if (mlx->player->angle < 0)
 			mlx->player->angle += 2 * M_PI;
+		// mlx->player->rot = 0;
 	}
 }
 
@@ -82,10 +84,13 @@ void	move_player(t_mlx *mlx, double move_x, double move_y)
 	if (mlx->game->map->map[map_grid_y][map_grid_x] != '1' && \
 	(mlx->game->map->map[map_grid_y][(int)((mlx->player->plyr_x + move_x - 1) / TILE_SIZE)] != '1' && \
 	mlx->game->map->map[(int)((mlx->player->plyr_y + move_y - 1) / TILE_SIZE)][map_grid_x] != '1'))
-	{
-		mlx->player->plyr_x = new_x;
-		mlx->player->plyr_y = new_y;
-	}
+		if (mlx->game->map->map[map_grid_y][map_grid_x] != 'D' && \
+	(mlx->game->map->map[map_grid_y][(int)((mlx->player->plyr_x + move_x - 1) / TILE_SIZE)] != 'D' && \
+	mlx->game->map->map[(int)((mlx->player->plyr_y + move_y - 1) / TILE_SIZE)][map_grid_x] != 'D'))
+			{
+				mlx->player->plyr_x = new_x;
+				mlx->player->plyr_y = new_y;
+			}
 }
 
 void	hook(t_mlx *mlx, double move_x, double move_y)

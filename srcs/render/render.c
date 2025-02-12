@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:27:19 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/11 09:34:23 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/12 21:41:52 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	game_loop(void *ml)
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *)ml;
+	// mlx_set_mouse_pos(mlx->mlx_p, WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	hook(mlx, 0, 0);
 	cast_rays(mlx);
 }
@@ -77,6 +78,12 @@ void	init_texture(t_mlx *mlx)
 		printf("ea\n");
 		exit(1);
 	}
+	mlx->texture->door = mlx_load_png("./assets/poker.png");
+	if (!mlx->texture->door)
+	{
+		printf("door\n");
+		exit(1);
+	}
 }
 
 void	start_the_game(t_game *game)
@@ -89,6 +96,7 @@ void	start_the_game(t_game *game)
 	init_texture(mlx);
 	mlx->player = ft_calloc(1, sizeof(t_player));
 	mlx->ray = ft_calloc(1, sizeof(t_ray));
+	mlx->ray->door = 0;
 	mlx->mlx_p = mlx_init(WIN_WIDTH, WIN_HEIGHT, "Cub3d", 0);
 	init_the_player(mlx);
 	mlx->img = mlx_new_image(mlx->mlx_p, WIN_WIDTH, WIN_HEIGHT);
@@ -96,5 +104,8 @@ void	start_the_game(t_game *game)
 	mlx_loop_hook(mlx->mlx_p, game_loop, mlx);
 	mlx_key_hook(mlx->mlx_p, mlx_key, mlx);
 	mlx_close_hook(mlx->mlx_p, ft_exit, mlx);
+	mlx_mouse_hook(mlx->mlx_p, mouse, mlx);
+	mlx_set_cursor_mode(mlx->mlx_p,MLX_MOUSE_NORMAL);
+	mlx_cursor_hook(mlx->mlx_p, cursor_mouse, mlx);
 	mlx_loop(mlx->mlx_p);
 }
