@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 04:39:45 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 06:00:27 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ void	free_ray(t_ray *ray)
 	free(ray);
 	ray = NULL;
 }
-

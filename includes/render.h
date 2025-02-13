@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 05:48:10 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:59:34 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define _USE_MATH_DEFINES
 # include <math.h>
 # include <string.h>
-#include <stdio.h>
+# include <stdio.h>
 
 // typedef struct s_texture
 // {
@@ -57,7 +57,8 @@ void			mouse(mouse_key_t button, action_t action, modifier_key_t mod,
 void			cursor_mouse(double xpos, double ypos, void *game_ptr);
 
 int				unit_circle(float angle, char c);
-int				inter_check(float angle, float *inter, float *step, int is_horizon);
+int				inter_check(float angle, float *inter, float *step,
+					int is_horizon);
 int				wall_hit(float x, float y, t_game *game);
 float			get_h_inter(t_game *game, float angl);
 float			get_v_ibnter(t_game *game, float angl);

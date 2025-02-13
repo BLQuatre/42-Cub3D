@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 04:29:09 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:56:50 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:59:52 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct s_ray
 	int		door_h;
 	int		door_v;
 	int		door;
-} t_ray;
+}	t_ray;
 
 t_ray		*init_ray(void);
 void		free_ray(t_ray *ray);
