@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/13 16:26:08 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/13 17:02:46 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ RAW_FILES	=	debug/debug debug/vector debug/map debug/game debug/color	\
 				\
 				render/hooks/init render/hooks/close render/hooks/cursor	\
 				render/hooks/key render/hooks/loop render/hooks/mouse		\
-				render/hooks/movements										\
+				render/hooks/movements render/hooks/animation				\
 				render/movements render/ray render/render render/rendering	\
 				render/rendering_utils render/textures						\
 				\
