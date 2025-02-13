@@ -6,13 +6,13 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:25:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/12 01:07:02 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 01:10:02 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	parse_color(char *raw_str_num)
+static int	get_color(char *raw_str_num)
 {
 	char	*str_num;
 	int		num;
@@ -35,9 +35,9 @@ t_color	*handle_color(char *str_color)
 	colors = ft_split(str_color, ',');
 	if (!colors || array_len(colors) != 3)
 		return (array_free(colors), NULL);
-	rgb[0] = parse_color(colors[0]);
-	rgb[1] = parse_color(colors[1]);
-	rgb[2] = parse_color(colors[2]);
+	rgb[0] = get_color(colors[0]);
+	rgb[1] = get_color(colors[1]);
+	rgb[2] = get_color(colors[2]);
 	array_free(colors);
 	if (rgb[0] == -1 || rgb[1] == -1 || rgb[2] == -1)
 		return (NULL);

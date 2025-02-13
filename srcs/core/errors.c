@@ -6,11 +6,16 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 19:33:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/12 11:04:33 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/12 20:23:01 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	print_error(char *line)
+{
+	ft_putendl_fd(line, 2);
+}
 
 void	add_error(t_game *game, char *msg)
 {
@@ -24,18 +29,11 @@ void	add_error(t_game *game, char *msg)
 
 void	show_errors(t_game *game)
 {
-	t_list	*tmp;
-
 	if (!game->errors)
 		return ;
-	tmp = game->errors;
 	ft_putendl_fd("Error", 2);
 	ft_putstr_fd("\e[31m", 2);
-	while (tmp)
-	{
-		ft_putendl_fd(tmp->content, 2);
-		tmp = tmp->next;
-	}
+	ft_lstiter(game->errors, (void (*)(void *)) print_error);
 	ft_putstr_fd("\e[0m", 2);
 	ft_lstclear(&game->errors, free);
 	game->errors = NULL;

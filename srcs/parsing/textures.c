@@ -6,25 +6,33 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 01:31:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/12 15:20:20 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 01:17:31 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "parsing.h"
 
-static bool	is_map_char(char c)
+void	parse_texture(t_game *game, char *line, char *id,
+	char **texture_ptr)
 {
-	int	i;
-
-	i = ft_strlen(MAP_CHARS) - 1;
-	while (i >= 0)
+	if (*texture_ptr)
 	{
-		if (MAP_CHARS[i] == c)
-			return (true);
-		i--;
+		add_error(game, ft_strjoin(id, DUPLICATE_TEXTURE_MSG));
+		return ;
 	}
-	return (false);
+	*texture_ptr = ft_strdup(line + ft_strlen(id));
+	handle_invalid_textures(game, *texture_ptr, id);
+}
+
+void	parse_color(t_game *game, char *line, char *id, t_color **color)
+{
+	*color = handle_color(line + ft_strlen(id));
+	if (!*color)
+	{
+		add_error(game, ft_strjoin(id, INVALID_COLOR_MSG));
+		*color = uint_to_t_color(0x00000000);
+	}
 }
 
 /*** Return false if char map found */
@@ -36,63 +44,17 @@ bool	handle_texture(t_game *game, char *raw_line)
 	if (!line)
 		return (add_error(game, MALLOC_ERROR_MSG), false);
 	if (ft_strncmp(line, NORTH_ID, 3) == 0)
-	{
-		if (game->north_texture)
-			add_error(game, ft_strjoin(NORTH_ID, DUPLICATE_TEXTURE_MSG));
-		else
-		{
-			game->north_texture = ft_strdup(line + 3);
-			handle_invalid_textures(game, game->north_texture, NORTH_ID);
-		}
-	}
+		parse_texture(game, line, NORTH_ID, &game->north_texture);
 	else if (ft_strncmp(line, SOUTH_ID, 3) == 0)
-	{
-		if (game->south_texture)
-			add_error(game, ft_strjoin(SOUTH_ID, DUPLICATE_TEXTURE_MSG));
-		else
-		{
-			game->south_texture = ft_strdup(line + 3);
-			handle_invalid_textures(game, game->south_texture, SOUTH_ID);
-		}
-	}
+		parse_texture(game, line, SOUTH_ID, &game->south_texture);
 	else if (ft_strncmp(line, WEST_ID, 3) == 0)
-	{
-		if (game->west_texture)
-			add_error(game, ft_strjoin(WEST_ID, DUPLICATE_TEXTURE_MSG));
-		else
-		{
-			game->west_texture = ft_strdup(line + 3);
-			handle_invalid_textures(game, game->west_texture, WEST_ID);
-		}
-	}
+		parse_texture(game, line, WEST_ID, &game->west_texture);
 	else if (ft_strncmp(line, EAST_ID, 3) == 0)
-	{
-		if (game->east_texture)
-			add_error(game, ft_strjoin(EAST_ID, DUPLICATE_TEXTURE_MSG));
-		else
-		{
-			game->east_texture = ft_strdup(line + 3);
-			handle_invalid_textures(game, game->east_texture, EAST_ID);
-		}
-	}
+		parse_texture(game, line, EAST_ID, &game->east_texture);
 	else if (ft_strncmp(line, FLOOR_ID, 2) == 0)
-	{
-		game->floor_color = handle_color(line + 2);
-		if (!game->floor_color)
-		{
-			add_error(game, ft_strjoin(FLOOR_ID, INVALID_COLOR_MSG));
-			game->floor_color = uint_to_t_color(0x00000000);
-		}
-	}
+		parse_color(game, line, FLOOR_ID, &game->floor_color);
 	else if (ft_strncmp(line, CELLING_ID, 2) == 0)
-	{
-		game->celling_color = handle_color(line + 2);
-		if (!game->celling_color)
-		{
-			add_error(game, ft_strjoin(CELLING_ID, INVALID_COLOR_MSG));
-			game->celling_color = uint_to_t_color(0x00000000);
-		}
-	}
+		parse_color(game, line, CELLING_ID, &game->celling_color);
 	else if (is_map_char(*line))
 	{
 		free(line);
@@ -109,7 +71,11 @@ void	handle_textures(t_game *game, int map_fd)
 	line = get_next_line(map_fd);
 	while (line && !check_textures(game))
 	{
-		remove_end_newline(line);
+		if (remove_end_newline_and_spaces(line))
+		{
+			add_error(game, ft_strdup(INVALID_TEXTURE_LINE_MSG));
+			break ;
+		}
 		if (!handle_texture(game, line))
 		{
 			handle_missing_textures(game);
@@ -118,7 +84,7 @@ void	handle_textures(t_game *game, int map_fd)
 			break ;
 		}
 		if (check_textures(game))
-			break;
+			break ;
 		free(line);
 		line = get_next_line(map_fd);
 	}

@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:14:28 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/12 11:21:24 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 01:00:20 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@
 # define FILE_EXT ".cub"
 # define TEXTURE_EXT ".png"
 # define MAP_CHARS "10DNSEW"
+
+typedef enum e_texture_char
+{
+	NORTH = 'N',
+	SOUTH = 'S',
+	WEST = 'W',
+	EAST = 'E',
+	WALL = '1',
+	PATH = '0',
+	DOOR = 'D'
+}	t_texture_char;
 
 # define NORTH_ID "NO "
 # define SOUTH_ID "SO "

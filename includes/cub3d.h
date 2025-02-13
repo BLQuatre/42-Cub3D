@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:58:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/12 16:12:40 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 01:01:46 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ void		handle_game(t_game *game, char *file);
 
 // Map
 void		handle_map(t_game *game, int map_fd);
+void		process_map(t_game *game);
+void		reset_map(t_game *game);
+void		set_map_size(t_game *game);
+void		justify_map_lines(t_game *game);
 
 // Textures
 bool		check_textures(t_game *game);
@@ -75,6 +79,12 @@ void		handle_textures(t_game *game, int map_fd);
 
 // Colors
 t_color		*handle_color(char *str_color);
+
+// Utils
+bool		is_map_char(char c);
+int			remove_end_newline_and_spaces(char *str);
+bool		is_valid_extension(char *file, char *extension);
+char		**map_list_to_map_array(t_list *lst);
 
 /*** Structs */
 // Game
@@ -94,11 +104,5 @@ uint32_t	rgba_to_uint(int r, int g, int b, int a);
 // Arrays
 void		array_free(char **array);
 int			array_len(char **array);
-
-// Extension
-bool		is_valid_extension(char *file, char *extension);
-
-// Newline
-void		remove_end_newline(char *line);
 
 #endif

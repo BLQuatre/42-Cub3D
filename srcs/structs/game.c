@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/11 22:02:29 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/12 20:12:24 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_game	*init_game(void)
 	game = (t_game *) ft_calloc(1, sizeof(t_game));
 	if (!game)
 		return (NULL);
+	game->map = init_map();
 	return (game);
 }
 
