@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 04:29:09 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 18:04:42 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:13:58 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "MLX42/MLX42.h"
 # include "libft.h"
+# include "variables.h"
 
 typedef struct s_vector
 {
@@ -91,7 +92,7 @@ t_ray		*init_ray(void);
 void		free_ray(t_ray *ray);
 
 // *** ACTION DOOR
-typedef struct s_open_close
+typedef struct s_act_door
 {
 	int	open;
 	int	close;
@@ -105,7 +106,29 @@ t_act_door	*init_act_door(void);
 void		reset_act_door(t_act_door *door);
 void		free_act_door(t_act_door *door);
 
+// *** FRAME
+typedef struct s_frame
+{
+	mlx_texture_t	*texture;
+	int				duration;
+}	t_frame;
+
+t_frame		*init_frame(void);
+void		free_frame(t_frame *frame);
+
+// *** ANIMATION
+typedef struct s_animation
+{
+	t_frame	*frames[ANIM_SIZE + 1];
+	int	frame_index;
+	int	frame_duration;
+}	t_animation;
+
+t_animation	*init_animation(void);
+void		free_animation(t_animation *animation);
+
 // *** GAME
+// TODO: Test to remove ptr on t_ray and t_player struct
 typedef struct s_game
 {
 	mlx_t			*mlx;
@@ -114,6 +137,7 @@ typedef struct s_game
 	t_player		*player;
 	t_map			*map;
 	t_textures		*textures;
+	t_animation		*animation;
 	t_list			*errors;
 	t_act_door		*door;
 }	t_game;

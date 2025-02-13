@@ -5,21 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 16:59:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 19:53:17 by cauvray          ###   ########.fr       */
+/*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
+/*   Updated: 2025/02/13 19:36:22 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "cub3d.h"
 
-void	animation_hook(t_game *game)
+t_animation	*init_animation(void)
 {
-	if (game->player->l_r == 0 && game->player->u_d == 0 &&
-		game->player->rot == 0)
+	t_animation	*animation;
+	int			i;
+
+	animation = (t_animation *) ft_calloc(1, sizeof(t_animation));
+	if (!animation)
+		return (NULL);
+	i = 0;
+	while (i < ANIM_SIZE)
 	{
-		game->animation->frame_index = 0;
-		game->animation->frame_duration = 0;
-		return ;
+		animation->frames[i] = init_frame();
+		i++;
 	}
-	printf("Update Animation\n");
+	animation->frames[i] = NULL;
+	return (animation);
+}
+
+void	free_animation(t_animation *animation)
+{
+	int	i;
+
+	if (!animation)
+		return ;
+	i = 0;
+	while (animation->frames[i])
+	{
+		free_frame(animation->frames[i]);
+		animation->frames[i] = NULL;
+		i++;
+	}
+	free(animation);
+	animation = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:58:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:53:26 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 19:34:25 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdbool.h>
 # include "MLX42/MLX42.h"
 # include "structs.h"
-# include "variables.h"
 # include "libft.h"
 # include "get_next_line.h"
 # include "messages.h"
@@ -44,6 +43,9 @@ void		justify_map_lines(t_game *game);
 bool		check_textures(t_textures *textures);
 void		handle_missing_textures(t_game *game);
 void		handle_textures(t_game *game, int map_fd);
+
+// Animation
+void		load_animations(t_game *game);
 
 // Colors
 t_color		*handle_color(char *str_color);

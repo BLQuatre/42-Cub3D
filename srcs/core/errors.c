@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 19:33:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:37:59 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 19:37:33 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	print_error(char *line)
 {
+	if (!line)
+		return ;
 	ft_putendl_fd(line, 2);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 16:23:32 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 19:31:07 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void			mouse_hook(mouse_key_t button, action_t action,
 					modifier_key_t mod, void *game_ptr);
 void			cursor_hook(double xpos, double ypos, void *game_ptr);
 void			movements_hook(t_game *game, double move_x, double move_y);
+void			animation_hook(t_game *game);
 
 // *** Movements
 void			rotate_player(t_game *game, int i);

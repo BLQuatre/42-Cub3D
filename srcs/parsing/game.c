@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 01:19:52 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:46:51 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 19:27:25 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	handle_game(t_game *game, char *file)
 		handle_map(game, map_fd);
 	get_next_line(-1);
 	close(map_fd);
+	load_animations(game);
 	if (ft_lstsize(game->errors) > 0 || !check_textures(game->textures))
 		quit(game, 1);
 	debug_show_game(game);
