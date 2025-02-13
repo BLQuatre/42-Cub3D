@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 04:37:39 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:54:53 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	free_textures(t_textures *textures)
 	textures->floor = NULL;
 	free(textures->celling);
 	textures->celling = NULL;
+	free(textures);
 	textures = NULL;
 }
