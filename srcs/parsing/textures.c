@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 01:31:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:47:17 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:28:49 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,8 @@ static bool	handle_texture(t_game *game, char *raw_line)
 	else if (ft_strncmp(line, CELLING_ID, 2) == 0)
 		parse_color(game, line, CELLING_ID, &game->textures->celling);
 	else if (is_map_char(*line))
-	{
-		free(line);
-		return (false);
-	}
-	free(line);
-	return (true);
+		return (free(line), false);
+	return (free(line), true);
 }
 
 void	handle_textures(t_game *game, int map_fd)

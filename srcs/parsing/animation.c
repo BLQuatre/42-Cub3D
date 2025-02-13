@@ -6,17 +6,17 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:21:04 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 20:21:24 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:29:41 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void check_animations(t_game *game)
+static void	check_animations(t_game *game)
 {
 	int		i;
 	char	*tmp_nbr;
-	
+
 	i = 0;
 	while (i < ANIM_SIZE)
 	{
@@ -24,7 +24,7 @@ void check_animations(t_game *game)
 		{
 			tmp_nbr = ft_itoa(i);
 			add_error(game, ft_strjoin(INVALID_ANIM_TEXTURE,
-				tmp_nbr));
+					tmp_nbr));
 			free(tmp_nbr);
 		}
 		i++;
@@ -35,7 +35,7 @@ static void	load_animation(t_game *game, char *line, int i)
 {
 	char	*file;
 	char	**split;
-	
+
 	split = ft_split(line, ' ');
 	if (!split || array_len(split) != 2)
 	{
@@ -63,7 +63,7 @@ void	load_animations(t_game *game)
 	free(line);
 	if (!anim_fd)
 		return (add_error(game, ft_strjoin(OPEN_READ_FILE_ERROR_MSG,
-			ANIM_FILE)));
+					ANIM_FILE)));
 	line = get_next_line(anim_fd);
 	i = 0;
 	while (line && i < ANIM_SIZE)

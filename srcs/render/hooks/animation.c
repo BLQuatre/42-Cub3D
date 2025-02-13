@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:59:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 19:53:17 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:31:38 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	animation_hook(t_game *game)
 {
-	if (game->player->l_r == 0 && game->player->u_d == 0 &&
-		game->player->rot == 0)
+	if (game->player->l_r == 0 && game->player->u_d == 0
+		&& game->player->rot == 0)
 	{
 		game->animation->frame_index = 0;
 		game->animation->frame_duration = 0;
