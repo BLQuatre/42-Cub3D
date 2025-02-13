@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:00:08 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 05:57:38 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 16:26:39 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int	wall_hit(float x, float y, t_game *game)
 	// game->ray->door = 0;
 	if ((y_m >= game->map->max_h || x_m >= game->map->max_w))
 		return (0);
-	if (game->map->tiles[y_m] && x_m <= \
-	(int)strlen(game->map->tiles[y_m]))
+	if (game->map->tiles[y_m] && x_m <= (int) ft_strlen(game->map->tiles[y_m]))
 		if (game->map->tiles[y_m][x_m] == '1' || game->map->tiles[y_m][x_m] == 'D')
 		{
 			if (game->map->tiles[y_m][x_m] == 'D')

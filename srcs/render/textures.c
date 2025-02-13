@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:31:34 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 05:02:50 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 15:56:44 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,4 @@ mlx_texture_t	*get_texture(t_game *game, int flag)
 		else
 			return (game->textures->north);
 	}
-}
-
-int	reverse_bytes(int c)
-{
-	unsigned int	b;
-
-	b = 0;
-	b |= (c & 0xFF) << 24;
-	b |= (c & 0xFF00) << 8;
-	b |= (c & 0xFF0000) >> 8;
-	b |= (c & 0xFF000000) >> 24;
-	return (b);
 }
