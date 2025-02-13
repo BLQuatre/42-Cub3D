@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
+#    By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/13 17:02:46 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/13 18:54:15 by jbergos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ RAW_FILES	=	debug/debug debug/vector debug/map debug/game debug/color	\
 				utils/arrays utils/colors 									\
 				\
 				structs/game structs/map structs/player structs/ray			\
-				structs/textures											\
+				structs/textures structs/door											\
 				\
 				parsing/colors parsing/game parsing/map_check				\
 				parsing/map_utils parsing/map parsing/textures_errors		\

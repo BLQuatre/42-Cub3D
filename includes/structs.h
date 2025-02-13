@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 04:29:09 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:59:52 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 18:04:42 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,21 @@ typedef struct s_ray
 t_ray		*init_ray(void);
 void		free_ray(t_ray *ray);
 
+// *** ACTION DOOR
+typedef struct s_open_close
+{
+	int	open;
+	int	close;
+	int	open_h;
+	int open_v;
+	int	close_h;
+	int close_v;
+} t_act_door;
+
+t_act_door	*init_act_door(void);
+void		reset_act_door(t_act_door *door);
+void		free_act_door(t_act_door *door);
+
 // *** GAME
 typedef struct s_game
 {
@@ -100,6 +115,7 @@ typedef struct s_game
 	t_map			*map;
 	t_textures		*textures;
 	t_list			*errors;
+	t_act_door		*door;
 }	t_game;
 
 t_game		*init_game(void);

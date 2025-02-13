@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:36:45 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 18:06:26 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_game	*init_game(void)
 	game->textures = init_textures();
 	game->player = init_player();
 	game->ray = init_ray();
+	game->door = init_act_door();
 	return (game);
 }
 
@@ -34,6 +35,7 @@ void	free_game(t_game *game)
 	free_textures(game->textures);
 	free_player(game->player);
 	free_ray(game->ray);
+	free_act_door(game->door);
 	if (game->mlx)
 	{
 		mlx_delete_image(game->mlx, game->img);
