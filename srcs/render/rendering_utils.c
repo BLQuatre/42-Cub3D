@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:14:16 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 15:56:48 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 16:28:55 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ double	get_x_o(mlx_texture_t *texture, t_game *game)
 
 	if (game->ray->flag == 1)
 		x_o = (int) fmodf((game->ray->h_x * (texture->width / TILE_SIZE)),
-			texture->width);
+				texture->width);
 	else
 		x_o = (int) fmodf((game->ray->v_y * (texture->width / TILE_SIZE)),
-			texture->width);
+				texture->width);
 	return (x_o);
 }
 

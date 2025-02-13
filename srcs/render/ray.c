@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:00:08 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 16:26:39 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 16:32:44 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int	wall_hit(float x, float y, t_game *game)
 	if ((y_m >= game->map->max_h || x_m >= game->map->max_w))
 		return (0);
 	if (game->map->tiles[y_m] && x_m <= (int) ft_strlen(game->map->tiles[y_m]))
-		if (game->map->tiles[y_m][x_m] == '1' || game->map->tiles[y_m][x_m] == 'D')
+		if (game->map->tiles[y_m][x_m] == '1'
+			|| game->map->tiles[y_m][x_m] == 'D')
 		{
 			if (game->map->tiles[y_m][x_m] == 'D')
 			{
@@ -106,7 +107,7 @@ float	get_h_inter(t_game *game, float angl)
 	game->ray->h_x = h_x;
 	game->ray->h_y = h_y;
 	return (sqrt(pow(h_x - game->player->pos.x, 2)
-		+ pow(h_y - game->player->pos.y, 2)));
+			+ pow(h_y - game->player->pos.y, 2)));
 }
 
 float	get_v_ibnter(t_game *game, float angl)

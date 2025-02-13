@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:01:48 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 16:07:37 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 16:31:08 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	key_hook(mlx_key_data_t keydata, void *game_ptr)
 	t_game	*game;
 
 	game = (t_game *) game_ptr;
-	if (keydata.key == MLX_KEY_ESCAPE &&
-		(keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+	if (keydata.key == MLX_KEY_ESCAPE
+		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
 		quit(game, 0);
 	else if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS))
 		game->player->l_r = -1;

@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:10:13 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 16:10:30 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 16:33:14 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	cursor_hook(double xpos, double ypos, void *game_ptr)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *) game_ptr;
 	(void) ypos;
@@ -26,7 +26,6 @@ void	cursor_hook(double xpos, double ypos, void *game_ptr)
 		{
 			printf("%d\n", game->player->pos.x);
 			game->player->rot = 1;
-
 		}
 		else if ((WIN_WIDTH / 2) - xpos > 50)
 			game->player->rot = -1;
