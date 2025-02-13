@@ -6,13 +6,13 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:21:04 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 20:02:52 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:21:24 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void check_animations(t_game *game)
+void check_animations(t_game *game)
 {
 	int		i;
 	char	*tmp_nbr;
@@ -26,8 +26,8 @@ static void check_animations(t_game *game)
 			add_error(game, ft_strjoin(INVALID_ANIM_TEXTURE,
 				tmp_nbr));
 			free(tmp_nbr);
-			i++;
 		}
+		i++;
 	}
 }
 
