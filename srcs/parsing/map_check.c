@@ -29,7 +29,6 @@ static void	save_tile(t_game *game, t_vector pos)
 static void	is_map_block_valid(t_game *game)
 {
 	t_vector	pos;
-	char		tile;
 
 	pos.y = 0;
 	while (game->map->tiles[pos.y])
@@ -37,7 +36,6 @@ static void	is_map_block_valid(t_game *game)
 		pos.x = 0;
 		while (game->map->tiles[pos.y][pos.x])
 		{
-			tile = game->map->tiles[pos.y][pos.x];
 			if (is_map_char(game->map->tiles[pos.y][pos.x]))
 				save_tile(game, pos);
 			else if (game->map->tiles[pos.y][pos.x] != ' ')
