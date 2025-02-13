@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:54:39 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 19:26:22 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:35:41 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,12 +188,12 @@ void	mouse_hook(mouse_key_t button, action_t action, modifier_key_t mod,
 			printf("dist v%f\n", v * cos(nor_angle(game->ray->ray_a - game->player->angle)));
 			dist = v * cos(nor_angle(game->ray->ray_a - game->player->angle));
 			printf("close_v : %d\n", game->door->close_v);
-			if (game->door->open_v && dist > 30 && dist < 90)
+			if (game->door->open_v && dist > 0.1 && dist < 90)
 			{
 				printf("to close h\n");
 				close_open_v(game, mid_a, 'D' * -1);
 			}
-			else if (game->door->close_v && dist > 30 && dist < 90)
+			else if (game->door->close_v && dist > 0.1 && dist < 90)
 			{
 				printf("to open h\n");
 				close_open_v(game, mid_a, 'D');
@@ -204,12 +204,12 @@ void	mouse_hook(mouse_key_t button, action_t action, modifier_key_t mod,
 			printf("dist h%f\n", h * cos(nor_angle(game->ray->ray_a - game->player->angle)));
 			dist = h * cos(nor_angle(game->ray->ray_a - game->player->angle));
 			printf("close_h : %d\n", game->door->close_h);
-			if (game->door->open_h && dist > 30 && dist < 90)
+			if (game->door->open_h && dist > 0.1 && dist < 90)
 			{
 				printf("to close v\n");
 				close_open_h(game, mid_a, 'D' * -1);
 			}
-			else if (game->door->close_h && dist > 30 && dist < 90)
+			else if (game->door->close_h && dist > 0.1 && dist < 90)
 			{
 				printf("to open v\n");
 				close_open_h(game, mid_a, 'D');
