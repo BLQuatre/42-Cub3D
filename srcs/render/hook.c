@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:53:33 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 05:28:21 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:57:21 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,21 @@ void	move_player(t_game *game, double move_x, double move_y)
 	int	new_x;
 	int	new_y;
 
-	new_x = round(game->player->plyr_x + move_x);
-	new_y = round(game->player->plyr_y + move_y);
+	new_x = round(game->player->pos.x + move_x);
+	new_y = round(game->player->pos.y + move_y);
 	map_grid_x = new_x / TILE_SIZE;
 	map_grid_y = new_y / TILE_SIZE;
 	// printf("y : %d, x : %d\n", mlx->player->l_r, mlx->player->u_d);
 	if (game->map->tiles[map_grid_y][map_grid_x] != '1'
-		&& (game->map->tiles[map_grid_y][(int)((game->player->plyr_x + move_x - 1) / TILE_SIZE)] != '1'
-		&& game->map->tiles[(int)((game->player->plyr_y + move_y - 1) / TILE_SIZE)][map_grid_x] != '1'))
+		&& (game->map->tiles[map_grid_y][(int)((game->player->pos.x + move_x - 1) / TILE_SIZE)] != '1'
+		&& game->map->tiles[(int)((game->player->pos.y + move_y - 1) / TILE_SIZE)][map_grid_x] != '1'))
 	{
 		if (game->map->tiles[map_grid_y][map_grid_x] != 'D'
-			&& (game->map->tiles[map_grid_y][(int)((game->player->plyr_x + move_x - 1) / TILE_SIZE)] != 'D'
-			&& game->map->tiles[(int)((game->player->plyr_y + move_y - 1) / TILE_SIZE)][map_grid_x] != 'D'))
+			&& (game->map->tiles[map_grid_y][(int)((game->player->pos.x + move_x - 1) / TILE_SIZE)] != 'D'
+			&& game->map->tiles[(int)((game->player->pos.y + move_y - 1) / TILE_SIZE)][map_grid_x] != 'D'))
 		{
-			game->player->plyr_x = new_x;
-			game->player->plyr_y = new_y;
+			game->player->pos.x = new_x;
+			game->player->pos.y = new_y;
 		}
 	}
 }

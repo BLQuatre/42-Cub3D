@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 04:29:09 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:45:58 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:56:50 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,12 @@ void		free_textures(t_textures *textures);
 // *** PLAYER
 typedef struct s_player
 {
-	int		plyr_x;
-	int		plyr_y;
-	double	angle;
-	float	fov_rd;
-	int		rot;
-	int		l_r;
-	int		u_d;
+	t_vector	pos;
+	double		angle;
+	float		fov_rd;
+	int			rot;
+	int			l_r;
+	int			u_d;
 }	t_player;
 
 t_player	*init_player(void);

@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:27:19 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 05:47:48 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:57:48 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ double	get_player_angle(t_map *map)
 
 void	load_player(t_game *game)
 {
-	game->player->plyr_x = game->map->start_pos.x * TILE_SIZE + TILE_SIZE / 2;
-	game->player->plyr_y = game->map->start_pos.y * TILE_SIZE + TILE_SIZE / 2;
+	game->player->pos.x = game->map->start_pos.x * TILE_SIZE + TILE_SIZE / 2;
+	game->player->pos.y = game->map->start_pos.y * TILE_SIZE + TILE_SIZE / 2;
 	game->player->fov_rd = (FOV * M_PI) / 180;
 	game->player->angle = get_player_angle(game->map);
 }

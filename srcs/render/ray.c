@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:00:08 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 05:10:40 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:57:38 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ float	get_h_inter(t_game *game, float angl)
 
 	y_step = TILE_SIZE;
 	x_step = TILE_SIZE / tan(angl);
-	h_y = floor(game->player->plyr_y / TILE_SIZE) * TILE_SIZE;
+	h_y = floor(game->player->pos.y / TILE_SIZE) * TILE_SIZE;
 	pixel = inter_check(angl, &h_y, &y_step, 1);
-	h_x = game->player->plyr_x + (h_y - game->player->plyr_y) / tan(angl);
+	h_x = game->player->pos.x + (h_y - game->player->pos.y) / tan(angl);
 	if ((unit_circle(angl, 'y') && x_step > 0)
 		|| (!unit_circle(angl, 'y') && x_step < 0))
 		x_step *= -1;
@@ -106,8 +106,8 @@ float	get_h_inter(t_game *game, float angl)
 		game->ray->door_h = 1;
 	game->ray->h_x = h_x;
 	game->ray->h_y = h_y;
-	return (sqrt(pow(h_x - game->player->plyr_x, 2)
-		+ pow(h_y - game->player->plyr_y, 2)));
+	return (sqrt(pow(h_x - game->player->pos.x, 2)
+		+ pow(h_y - game->player->pos.y, 2)));
 }
 
 float	get_v_ibnter(t_game *game, float angl)
@@ -120,9 +120,9 @@ float	get_v_ibnter(t_game *game, float angl)
 
 	x_step = TILE_SIZE;
 	y_step = TILE_SIZE * tan(angl);
-	v_x = floor(game->player->plyr_x / TILE_SIZE) * TILE_SIZE;
+	v_x = floor(game->player->pos.x / TILE_SIZE) * TILE_SIZE;
 	pixel = inter_check(angl, &v_x, &x_step, 0);
-	v_y = game->player->plyr_y + (v_x - game->player->plyr_x) * tan(angl);
+	v_y = game->player->pos.y + (v_x - game->player->pos.x) * tan(angl);
 	if ((unit_circle(angl, 'x') && y_step < 0) || \
 	(!unit_circle(angl, 'x') && y_step > 0))
 		y_step *= -1;
@@ -136,8 +136,8 @@ float	get_v_ibnter(t_game *game, float angl)
 		game->ray->door_v = 1;
 	game->ray->v_x = v_x;
 	game->ray->v_y = v_y;
-	return (sqrt(pow(v_x - game->player->plyr_x, 2) + \
-	pow(v_y - game->player->plyr_y, 2)));
+	return (sqrt(pow(v_x - game->player->pos.x, 2) + \
+	pow(v_y - game->player->pos.y, 2)));
 }
 
 void	cast_rays(t_game *game)
