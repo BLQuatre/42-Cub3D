@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:58:07 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 03:09:16 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:45:32 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,13 @@
 # define CUB3D_H
 
 # include <stdlib.h>
+# include <fcntl.h>
 # include "MLX42/MLX42.h"
+# include "structs.h"
+# include "variables.h"
 # include "libft.h"
+# include "get_next_line.h"
 # include "messages.h"
-
-typedef struct s_vector
-{
-	int	x;
-	int	y;
-}	t_vector;
-
-typedef struct s_color
-{
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-	uint8_t	a;
-}	t_color;
-
-typedef struct s_map
-{
-	char		**map;
-	int			max_w;
-	int			max_h;
-	t_vector	start_pos;
-}	t_map;
-
-typedef struct s_game
-{
-	char		*north_texture;
-	char		*south_texture;
-	char		*west_texture;
-	char		*east_texture;
-	t_color		*floor_color;
-	t_color		*celling_color;
-	t_map		*map;
-	t_list		*errors;
-}	t_game;
 
 /*** Core */
 // Errors
@@ -70,11 +40,8 @@ void		set_map_size(t_game *game);
 void		justify_map_lines(t_game *game);
 
 // Textures
-bool		check_textures(t_game *game);
-void		handle_invalid_textures(t_game *game, char *texture,
-				char *direction);
+bool		check_textures(t_textures *textures);
 void		handle_missing_textures(t_game *game);
-bool		handle_texture(t_game *game, char *raw_line);
 void		handle_textures(t_game *game, int map_fd);
 
 // Colors
@@ -85,15 +52,6 @@ bool		is_map_char(char c);
 int			remove_end_newline_and_spaces(char *str);
 bool		is_valid_extension(char *file, char *extension);
 char		**map_list_to_map_array(t_list *lst);
-
-/*** Structs */
-// Game
-t_game		*init_game(void);
-void		free_game(t_game *game);
-
-// Map
-t_map		*init_map(void);
-void		free_map(t_map *map);
 
 /*** UTILS */
 // Colors

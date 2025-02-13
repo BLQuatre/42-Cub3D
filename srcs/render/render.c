@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:27:19 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/12 21:41:52 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:47:48 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,96 +16,63 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-void	game_loop(void *ml)
+void	game_loop(void *game_ptr)
 {
-	t_mlx	*mlx;
+	t_game	*game;
 
-	mlx = (t_mlx *)ml;
-	// mlx_set_mouse_pos(mlx->mlx_p, WIN_WIDTH / 2, WIN_HEIGHT / 2);
-	hook(mlx, 0, 0);
-	cast_rays(mlx);
+	game = (t_game *) game_ptr;
+	// mlx_set_mouse_pos(game->mlx, WIN_WIDTH / 2, WIN_HEIGHT / 2);
+	hook(game, 0, 0);
+	cast_rays(game);
 }
 
-double	get_angle_player(t_mlx *mlx)
+double	get_player_angle(t_map *map)
 {
-	char	a;
+	char	tile;
 
-	a = mlx->game->map->map[mlx->game->map->start_pos.y] \
-	[mlx->game->map->start_pos.x];
-	if (a == 'N')
+	tile = map->tiles[map->start_pos.y][map->start_pos.x];
+	if (tile == 'N')
 		return ((3 * M_PI) / 2);
-	else if (a == 'S')
+	else if (tile == 'S')
 		return (M_PI / 2);
-	else if (a == 'E')
+	else if (tile == 'E')
 		return (0);
 	else
 		return (M_PI);
 }
 
-void	init_the_player(t_mlx *mlx)
+void	load_player(t_game *game)
 {
-	mlx->player->plyr_x = mlx->game->map->start_pos.x * \
-	TILE_SIZE + TILE_SIZE / 2;
-	mlx->player->plyr_y = mlx->game->map->start_pos.y * \
-	TILE_SIZE + TILE_SIZE / 2;
-	mlx->player->fov_rd = (FOV * M_PI) / 180;
-	mlx->player->angle = get_angle_player(mlx);
+	game->player->plyr_x = game->map->start_pos.x * TILE_SIZE + TILE_SIZE / 2;
+	game->player->plyr_y = game->map->start_pos.y * TILE_SIZE + TILE_SIZE / 2;
+	game->player->fov_rd = (FOV * M_PI) / 180;
+	game->player->angle = get_player_angle(game->map);
 }
 
-void	init_texture(t_mlx *mlx)
+void close_window(void *game_ptr)
 {
-	mlx->texture->no = mlx_load_png(mlx->game->north_texture);
-	if (!mlx->texture->no)
-	{
-		printf("no\n");
-		exit(1);
-	}
-	mlx->texture->so = mlx_load_png(mlx->game->south_texture);
-	if (!mlx->texture->so)
-	{
-		printf("so\n");
-		exit(1);
-	}
-	mlx->texture->we = mlx_load_png(mlx->game->west_texture);
-	if (!mlx->texture->we)
-	{
-		printf("we\n");
-		exit(1);
-	}
-	mlx->texture->ea = mlx_load_png(mlx->game->east_texture);
-	if (!mlx->texture->ea)
-	{
-		printf("ea\n");
-		exit(1);
-	}
-	mlx->texture->door = mlx_load_png("./assets/poker.png");
-	if (!mlx->texture->door)
-	{
-		printf("door\n");
-		exit(1);
-	}
+	t_game	*game;
+
+	game = (t_game *) game_ptr;
+	quit(game, 0);
 }
 
-void	start_the_game(t_game *game)
+void	load_game(t_game *game)
 {
-	t_mlx	*mlx;
-
-	mlx = ft_calloc(1, sizeof(t_mlx));
-	mlx->game = game;
-	mlx->texture = ft_calloc(1, sizeof(t_texture));
-	init_texture(mlx);
-	mlx->player = ft_calloc(1, sizeof(t_player));
-	mlx->ray = ft_calloc(1, sizeof(t_ray));
-	mlx->ray->door = 0;
-	mlx->mlx_p = mlx_init(WIN_WIDTH, WIN_HEIGHT, "Cub3d", 0);
-	init_the_player(mlx);
-	mlx->img = mlx_new_image(mlx->mlx_p, WIN_WIDTH, WIN_HEIGHT);
-	mlx_image_to_window(mlx->mlx_p, mlx->img, 0, 0);
-	mlx_loop_hook(mlx->mlx_p, game_loop, mlx);
-	mlx_key_hook(mlx->mlx_p, mlx_key, mlx);
-	mlx_close_hook(mlx->mlx_p, ft_exit, mlx);
-	mlx_mouse_hook(mlx->mlx_p, mouse, mlx);
-	mlx_set_cursor_mode(mlx->mlx_p,MLX_MOUSE_NORMAL);
-	mlx_cursor_hook(mlx->mlx_p, cursor_mouse, mlx);
-	mlx_loop(mlx->mlx_p);
+	game->mlx = mlx_init(WIN_WIDTH, WIN_HEIGHT, "Cub3d", 0);
+	if (!game->mlx)
+	{
+		add_error(game, ft_strdup(MALLOC_ERROR_MSG));
+		quit(game, 1);
+	}
+	load_player(game);
+	game->img = mlx_new_image(game->mlx, WIN_WIDTH, WIN_HEIGHT);
+	mlx_image_to_window(game->mlx, game->img, 0, 0);
+	mlx_loop_hook(game->mlx, game_loop, game);
+	mlx_key_hook(game->mlx, mlx_key, game);
+	mlx_close_hook(game->mlx, close_window, game);
+	mlx_mouse_hook(game->mlx, mouse, game);
+	mlx_set_cursor_mode(game->mlx, MLX_MOUSE_NORMAL);
+	mlx_cursor_hook(game->mlx, cursor_mouse, game);
+	mlx_loop(game->mlx);
 }

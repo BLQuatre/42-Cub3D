@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 01:03:05 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 00:59:09 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 04:07:51 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@
 # define INVALID_COLOR_MSG			"color is invalid."
 # define INVALID_TEXTURE_EXT_MSG	"texture must be .png."
 # define DUPLICATE_TEXTURE_MSG		"texture is duplicate."
+# define DUPLICATE_COLOR_MSG		"color is duplicate."
 
 #endif

@@ -6,12 +6,11 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:47:35 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/12 20:24:59 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 04:57:32 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "parsing.h"
 
 bool	is_map_char(char c)
 {

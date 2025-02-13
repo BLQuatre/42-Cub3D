@@ -6,12 +6,11 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:22:51 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 00:57:48 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 04:57:21 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "parsing.h"
 
 static void	add_line(t_list **lst, char *line)
 {
@@ -28,8 +27,8 @@ static void	parse_map(t_game *game, t_list *map)
 	(void) game;
 	while (map && map->content && ft_strlen(map->content) == 0)
 		map = map->next;
-	game->map->map = map_list_to_map_array(map);
-	if (!game->map->map)
+	game->map->tiles = map_list_to_map_array(map);
+	if (!game->map->tiles)
 		add_error(game, ft_strdup(MALLOC_ERROR_MSG));
 	while (map && map->content && ft_strlen(map->content) > 0)
 		map = map->next;

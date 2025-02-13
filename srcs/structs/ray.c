@@ -1,45 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:36:45 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 04:39:45 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_game	*init_game(void)
+t_ray	*init_ray(void)
 {
-	t_game	*game;
+	t_ray	*ray;
 
-	game = (t_game *) ft_calloc(1, sizeof(t_game));
-	if (!game)
+	ray = (t_ray *) ft_calloc(1, sizeof(t_ray));
+	if (!ray)
 		return (NULL);
-	game->map = init_map();
-	game->textures = init_textures();
-	game->player = init_player();
-	game->ray = init_ray();
-	return (game);
+	return (ray);
 }
 
-void	free_game(t_game *game)
+void	free_ray(t_ray *ray)
 {
-	if (!game)
+	if (!ray)
 		return ;
-	free_map(game->map);
-	free_textures(game->textures);
-	free_player(game->player);
-	free_ray(game->ray);
-	if (game->mlx)
-	{
-		mlx_delete_image(game->mlx, game->img);
-		mlx_close_window(game->mlx);
-		mlx_terminate(game->mlx);
-	}
-	free(game);
-	game = NULL;
+	free(ray);
+	ray = NULL;
 }
+

@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   variables.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 15:14:28 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 01:00:20 by cauvray          ###   ########.fr       */
+/*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
+/*   Updated: 2025/02/13 04:50:44 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#ifndef VARIABLES_H
+# define VARIABLES_H
 
-# include <fcntl.h>
-# include <stdio.h>
-# include "cub3d.h"
-# include "libft.h"
-# include "get_next_line.h"
+# ifndef WIN_WIDTH
+#  define WIN_WIDTH 500
+# endif
+
+# ifndef WIN_HEIGHT
+#  define WIN_HEIGHT 500
+# endif
+
+# ifndef M_PI
+#  define M_PI 3.14159265358979323846
+# endif
+
+# define TILE_SIZE 30
+# define FOV 60
+# define ROT_SPEED 0.0095
+# define P_SPEED 4
 
 # define FILE_EXT ".cub"
 # define TEXTURE_EXT ".png"
@@ -40,5 +51,6 @@ typedef enum e_texture_char
 # define EAST_ID "EA "
 # define FLOOR_ID "F "
 # define CELLING_ID "C "
+# define DOOR_ID "DO "
 
 #endif

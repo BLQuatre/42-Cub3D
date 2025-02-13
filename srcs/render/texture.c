@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:31:34 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/12 18:53:51 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/13 05:02:50 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-mlx_texture_t	*get_texture(t_mlx *mlx, int flag)
+mlx_texture_t	*get_texture(t_game *game, int flag)
 {
-	if (mlx->ray->door)
-		return (mlx->texture->door);
-	mlx->ray->ray_a = nor_angle(mlx->ray->ray_a);
+	if (game->ray->door)
+		return (game->textures->door);
+	game->ray->ray_a = nor_angle(game->ray->ray_a);
 	if (flag == 0)
 	{
-		if (mlx->ray->ray_a > M_PI / 2 && mlx->ray->ray_a < 3 * (M_PI / 2))
-			return (mlx->texture->we);
+		if (game->ray->ray_a > M_PI / 2 && game->ray->ray_a < 3 * (M_PI / 2))
+			return (game->textures->west);
 		else
-			return (mlx->texture->ea);
+			return (game->textures->east);
 	}
 	else
 	{
-		if (mlx->ray->ray_a > 0 && mlx->ray->ray_a < M_PI)
-			return (mlx->texture->so);
+		if (game->ray->ray_a > 0 && game->ray->ray_a < M_PI)
+			return (game->textures->south);
 		else
-			return (mlx->texture->no);
+			return (game->textures->north);
 	}
 }
 
