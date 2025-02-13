@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 18:44:43 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 22:08:10 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@ typedef enum e_texture_char
 # define CELLING_ID	"C "
 # define DOOR_ID	"DO "
 
-# define ANIM_SIZE		33
-# define ANIM_FOLDER	"./assets/cat_anim/"
-# define ANIM_FILE		"anim_list.cat"
+# define ANIM_SIZE			33
+# define ANIM_FOLDER		"./assets/cat_anim/"
+# define ANIM_FILE			"anim_list.cat"
 
+# define ANIM_IMG_WIDTH		528
+# define ANIM_IMG_HEIGHT	472
+# define ANIM_IMG_SCALE		0.5
 #endif

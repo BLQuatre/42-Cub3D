@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:27:19 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 21:17:46 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/13 22:09:40 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ static void load_anim_image(t_game *game)
 		if (!game->animation->frames[i]->image)
 			add_error(game, ft_strdup(TEXTURE_LOAD_ERROR_MSG));
 		else
-			mlx_resize_image(game->animation->frames[i]->image, 200, 200);
+			mlx_resize_image(
+				game->animation->frames[i]->image,
+				(uint32_t) ANIM_IMG_WIDTH * ANIM_IMG_SCALE,
+				(uint32_t) ANIM_IMG_HEIGHT * ANIM_IMG_SCALE
+			);
 		i++;
 	}
 }
