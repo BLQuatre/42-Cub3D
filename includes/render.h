@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 19:31:07 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 21:08:38 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
 # include <stdio.h>
 
 // *** Render
-void			load_player(t_game *game);
 void			load_game(t_game *game);
-double			get_player_angle(t_map *map);
 
 // *** HOOKS
 void			init_hooks(t_game *game);

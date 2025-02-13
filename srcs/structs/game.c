@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 20:14:13 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 21:07:22 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	free_game(t_game *game)
 	free_player(game->player);
 	free_ray(game->ray);
 	free_act_door(game->door);
-	free_animation(game->animation);
+	free_animation(game->animation, game->mlx);
 	if (game->mlx)
 	{
 		mlx_delete_image(game->mlx, game->img);

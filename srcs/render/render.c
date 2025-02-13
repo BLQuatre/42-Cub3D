@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:27:19 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 16:31:27 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 21:17:46 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-double	get_player_angle(t_map *map)
+static double	get_player_angle(t_map *map)
 {
 	char	tile;
 
@@ -31,12 +31,29 @@ double	get_player_angle(t_map *map)
 		return (M_PI);
 }
 
-void	load_player(t_game *game)
+static void	load_player(t_game *game)
 {
 	game->player->pos.x = game->map->start_pos.x * TILE_SIZE + TILE_SIZE / 2;
 	game->player->pos.y = game->map->start_pos.y * TILE_SIZE + TILE_SIZE / 2;
 	game->player->fov_rd = (FOV * M_PI) / 180;
 	game->player->angle = get_player_angle(game->map);
+}
+
+static void load_anim_image(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < ANIM_SIZE)
+	{
+		game->animation->frames[i]->image = mlx_texture_to_image(game->mlx,
+			game->animation->frames[i]->texture);
+		if (!game->animation->frames[i]->image)
+			add_error(game, ft_strdup(TEXTURE_LOAD_ERROR_MSG));
+		else
+			mlx_resize_image(game->animation->frames[i]->image, 200, 200);
+		i++;
+	}
 }
 
 void	load_game(t_game *game)
@@ -47,6 +64,9 @@ void	load_game(t_game *game)
 		add_error(game, ft_strdup(MALLOC_ERROR_MSG));
 		quit(game, 1);
 	}
+	load_anim_image(game);
+	if (ft_lstsize(game->errors) > 0)
+		quit(game, 1);
 	load_player(game);
 	game->img = mlx_new_image(game->mlx, WIN_WIDTH, WIN_HEIGHT);
 	mlx_image_to_window(game->mlx, game->img, 0, 0);

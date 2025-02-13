@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 19:36:22 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 21:06:35 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_animation	*init_animation(void)
 	return (animation);
 }
 
-void	free_animation(t_animation *animation)
+void	free_animation(t_animation *animation, mlx_t *mlx)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ void	free_animation(t_animation *animation)
 	i = 0;
 	while (animation->frames[i])
 	{
-		free_frame(animation->frames[i]);
+		free_frame(animation->frames[i], mlx);
 		animation->frames[i] = NULL;
 		i++;
 	}

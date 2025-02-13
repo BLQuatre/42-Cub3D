@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 04:29:09 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 20:31:05 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 21:07:05 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,12 @@ void		free_act_door(t_act_door *door);
 typedef struct s_frame
 {
 	mlx_texture_t	*texture;
+	mlx_image_t		*image;
 	int				duration;
 }	t_frame;
 
 t_frame		*init_frame(void);
-void		free_frame(t_frame *frame);
+void		free_frame(t_frame *frame, mlx_t *mlx);
 
 // *** ANIMATION
 typedef struct s_animation
@@ -122,10 +123,11 @@ typedef struct s_animation
 	t_frame	*frames[ANIM_SIZE + 1];
 	int		frame_index;
 	int		frame_duration;
+	int		last_frame_index;
 }	t_animation;
 
 t_animation	*init_animation(void);
-void		free_animation(t_animation *animation);
+void		free_animation(t_animation *animation, mlx_t *mlx);
 
 // *** GAME
 // TODO: Test to remove ptr on t_ray and t_player struct
