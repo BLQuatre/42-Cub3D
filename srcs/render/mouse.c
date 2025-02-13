@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:54:39 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 05:41:19 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 15:47:50 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,32 +27,17 @@ void	cursor_mouse(double xpos, double ypos, void *game_ptr)
 
 	game = (t_game *) game_ptr;
 	(void) ypos;
+	mlx_set_mouse_pos(game->mlx, WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	if (xpos)
 	{
-		mlx_set_mouse_pos(game->mlx, WIN_WIDTH / 2, WIN_HEIGHT / 2);
-		if ((WIN_WIDTH / 2) - xpos < -5)
+		game->player->rot = 0;
+		if ((WIN_WIDTH / 2) - xpos < -50)
 		{
-			// game->player->rot = 1;
-			rotate_player(game, 1);
-			move_player(game, 0, 0);
-			// mlx_set_mouse_pos(game->mlx, WIN_WIDTH / 2, WIN_HEIGHT / 2);
-			// printf("test\n");
-		}
-		else if ((WIN_WIDTH / 2) - xpos > 5)
-		{
-			// game->player->rot = -1;
-			rotate_player(game, 0);
-			move_player(game, 0, 0);
-		}
-		// game->player->rot = 0;
-	}
-		// printf("test\n");
-	// else if ((WIN_WIDTH / 2) - xpos > 0)
-	// {
-	// 	rotate_player(game, 1);
-	// 	// move_player(game, 0, 0);
-	// }
+			printf("%d\n", game->player->pos.x);
+			game->player->rot = 1;
 
-	printf("%f\n", xpos);
-	// mlx_set_mouse_pos(game->mlx, WIN_WIDTH / 2, WIN_HEIGHT / 2);
+		}
+		else if ((WIN_WIDTH / 2) - xpos > 50)
+			game->player->rot = -1;
+	}
 }

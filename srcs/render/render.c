@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:27:19 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 05:57:48 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 15:30:32 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	load_game(t_game *game)
 	mlx_key_hook(game->mlx, mlx_key, game);
 	mlx_close_hook(game->mlx, close_window, game);
 	mlx_mouse_hook(game->mlx, mouse, game);
-	mlx_set_cursor_mode(game->mlx, MLX_MOUSE_NORMAL);
+	mlx_set_cursor_mode(game->mlx, MLX_MOUSE_HIDDEN);
 	mlx_cursor_hook(game->mlx, cursor_mouse, game);
 	mlx_loop(game->mlx);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:53:33 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 05:57:21 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/13 15:43:08 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	rotate_player(t_game *game, int i)
 		game->player->angle -= ROT_SPEED;
 		if (game->player->angle < 0)
 			game->player->angle += 2 * M_PI;
-		// mlx->player->rot = 0;
+		// game->player->rot = 0;
 	}
 }
 
