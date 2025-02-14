@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 21:08:38 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/14 11:16:41 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,8 @@ int				reverse_bytes(int c);
 
 // *** TEXTURES
 mlx_texture_t	*get_texture(t_game *game, int flag);
+
+// *** MINI_MAP
+void	mini_map(t_game *game);
 
 #endif

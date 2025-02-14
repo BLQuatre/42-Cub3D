@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   variables.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 22:08:10 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/14 11:06:40 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@
 # define FOV			60
 # define ROT_SPEED		0.05
 # define P_SPEED		4
+# define BLK 0x000000FF
+# define GREY 0x808080FF
+# define BLU 0x87CEEBFF
+# define GREN 0x008000FF
+# define ORNG 0xFF9300FF
+# define RED 0xFF0000FF
+# define WHI 0xFFFFFFFF
 
 # define FILE_EXT		".cub"
 # define TEXTURE_EXT	".png"

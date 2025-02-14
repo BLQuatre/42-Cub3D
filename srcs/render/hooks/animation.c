@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:59:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 22:14:20 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/14 11:37:19 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	animation_hook(t_game *game)
 	if (game->animation->frame_index > ANIM_SIZE - 1)
 		game->animation->frame_index = 0;
 	mlx_image_to_window(game->mlx,
-		game->animation->frames[game->animation->frame_index++]->image, 0, 0);
+		game->animation->frames[game->animation->frame_index++]->image, WIN_WIDTH - (ANIM_IMG_WIDTH * ANIM_IMG_SCALE), 0);
 }

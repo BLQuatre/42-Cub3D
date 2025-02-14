@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:12:26 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 21:32:38 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/14 11:20:26 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	loop_hook(void *game_ptr)
 	movements_hook(game, 0, 0);
 	animation_hook(game);
 	cast_rays(game);
+	mini_map(game);
 }
