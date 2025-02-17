@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/14 11:06:40 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/17 12:29:03 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define BLU 0x87CEEBFF
 # define GREN 0x008000FF
 # define ORNG 0xFF9300FF
-# define RED 0xFF0000FF
+# define REDD 0xFF0000FF
 # define WHI 0xFFFFFFFF
 
 # define FILE_EXT		".cub"

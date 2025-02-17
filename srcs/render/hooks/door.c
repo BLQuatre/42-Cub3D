@@ -1,56 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.c                                              :+:      :+:    :+:   */
+/*   door.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 17:00:08 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/17 15:38:19 by jbergos          ###   ########.fr       */
+/*   Created: 2025/02/17 14:06:45 by jbergos           #+#    #+#             */
+/*   Updated: 2025/02/17 14:20:23 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-int	unit_circle(float angle, char c)
-{
-	if (c == 'x')
-	{
-		if (angle > 0 && angle < M_PI)
-			return (1);
-	}
-	else if (c == 'y')
-	{
-		if (angle > (M_PI / 2) && angle < (3 * M_PI) / 2)
-			return (1);
-	}
-	return (0);
-}
-
-int	inter_check(float angle, float *inter, float *step, int is_horizon)
-{
-	if (is_horizon)
-	{
-		if (angle > 0 && angle < M_PI)
-		{
-			*inter += TILE_SIZE;
-			return (-1);
-		}
-		*step *= -1;
-	}
-	else
-	{
-		if (!(angle > M_PI / 2 && angle < 3 * M_PI / 2))
-		{
-			*inter += TILE_SIZE;
-			return (-1);
-		}
-		*step *= -1;
-	}
-	return (1);
-}
-
-int	wall_hit(float x, float y, t_game *game)
+int	close_open_door(float x, float y, t_game *game, char c)
 {
 	int	x_m;
 	int	y_m;
@@ -63,22 +25,16 @@ int	wall_hit(float x, float y, t_game *game)
 		return (0);
 	if (game->map->tiles[y_m] && x_m <= (int) ft_strlen(game->map->tiles[y_m]))
 	{
-		if (game->map->tiles[y_m][x_m] == '1' \
-			|| game->map->tiles[y_m][x_m] == 'D')
+		if (game->map->tiles[y_m][x_m] == c)
 		{
-			if (game->map->tiles[y_m][x_m] == 'D')
-			{
-				game->ray->door = 1;
-				return (0);
-			}
-			else
-				return (0);
+			game->map->tiles[y_m][x_m] = c * -1;
+			return (0);
 		}
 	}
 	return (1);
 }
 
-float	get_h_inter(t_game *game, float angl)
+void	close_open_h(t_game *game, float angl, char c)
 {
 	float	h_x;
 	float	h_y;
@@ -94,18 +50,14 @@ float	get_h_inter(t_game *game, float angl)
 	if ((unit_circle(angl, 'y') && x_step > 0)
 		|| (!unit_circle(angl, 'y') && x_step < 0))
 		x_step *= -1;
-	game->ray->door = 0;
-	while (wall_hit(h_x, h_y - pixel, game))
-		add_step(&h_x, &h_y, x_step, y_step);
-	if (game->ray->door == 1)
-		game->ray->door_h = 1;
-	game->ray->h_x = h_x;
-	game->ray->h_y = h_y;
-	return (sqrt(pow(h_x - game->player->pos.x, 2)
-			+ pow(h_y - game->player->pos.y, 2)));
+	while (close_open_door(h_x, h_y - pixel, game, c))
+	{
+		h_x += x_step;
+		h_y += y_step;
+	}
 }
 
-float	get_v_inter(t_game *game, float angl)
+void	close_open_v(t_game *game, float angl, char c)
 {
 	float	v_x;
 	float	v_y;
@@ -121,13 +73,31 @@ float	get_v_inter(t_game *game, float angl)
 	if ((unit_circle(angl, 'x') && y_step < 0) || \
 	(!unit_circle(angl, 'x') && y_step > 0))
 		y_step *= -1;
-	game->ray->door = 0;
-	while (wall_hit(v_x - pixel, v_y, game))
-		add_step(&v_x, &v_y, x_step, y_step);
-	if (game->ray->door == 1)
-		game->ray->door_v = 1;
-	game->ray->v_x = v_x;
-	game->ray->v_y = v_y;
-	return (sqrt(pow(v_x - game->player->pos.x, 2) + \
-	pow(v_y - game->player->pos.y, 2)));
+	while (close_open_door(v_x - pixel, v_y, game, c))
+	{
+		v_x += x_step;
+		v_y += y_step;
+	}
+}
+
+void	door_action_v(t_game *game, double v, double mid_a)
+{
+	double	dist;
+
+	dist = v * cos(nor_angle(game->ray->ray_a - game->player->angle));
+	if (game->door->open_v && dist > 2 && dist < 90)
+		close_open_v(game, mid_a, 'D' * -1);
+	else if (game->door->close_v && dist > 2 && dist < 90)
+		close_open_v(game, mid_a, 'D');
+}
+
+void	door_action_h(t_game *game, double h, double mid_a)
+{
+	double	dist;
+
+	dist = h * cos(nor_angle(game->ray->ray_a - game->player->angle));
+	if (game->door->open_h && dist > 2 && dist < 90)
+		close_open_h(game, mid_a, 'D' * -1);
+	else if (game->door->close_h && dist > 2 && dist < 90)
+		close_open_h(game, mid_a, 'D');
 }

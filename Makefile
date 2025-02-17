@@ -6,7 +6,7 @@
 #    By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/14 11:18:36 by jbergos          ###   ########.fr        #
+#    Updated: 2025/02/17 15:37:24 by jbergos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ RAW_FILES	=	debug/debug debug/vector debug/map debug/game debug/color	\
 				render/hooks/movements render/hooks/animation				\
 				render/movements render/ray render/render render/rendering	\
 				render/rendering_utils render/textures render/mini_map		\
+				render/hooks/door render/casting_ray						\
 				\
 				core/cub3d core/errors
 

@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:36:46 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 21:05:58 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/17 15:44:45 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	free_frame(t_frame *frame, mlx_t *mlx)
 		mlx_delete_image(mlx, frame->image);
 	if (frame->texture)
 		mlx_delete_texture(frame->texture);
-
 	free(frame);
 	frame = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/14 11:16:41 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/17 15:36:27 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int				inter_check(float angle, float *inter, float *step,
 					int is_horizon);
 int				wall_hit(float x, float y, t_game *game);
 float			get_h_inter(t_game *game, float angl);
-float			get_v_ibnter(t_game *game, float angl);
+float			get_v_inter(t_game *game, float angl);
 void			cast_rays(t_game *game);
 
 // *** RENDERING
@@ -54,6 +54,7 @@ void			my_mlx_pixel_put(t_game *game, int x, int y, int color);
 float			nor_angle(float angle);
 double			get_x_o(mlx_texture_t *texture, t_game *game);
 int				reverse_bytes(int c);
+void			add_step(float *x, float *y, float x_step, float y_step);
 
 // *** TEXTURES
 mlx_texture_t	*get_texture(t_game *game, int flag);
@@ -61,4 +62,8 @@ mlx_texture_t	*get_texture(t_game *game, int flag);
 // *** MINI_MAP
 void	mini_map(t_game *game);
 
+
+// *** DOOR
+void	door_action_v(t_game *game, double v, double mid_a);
+void	door_action_h(t_game *game, double h, double mid_a);
 #endif

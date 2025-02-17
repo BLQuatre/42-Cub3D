@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:27:19 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 22:09:40 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/17 14:54:29 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	load_player(t_game *game)
 	game->player->angle = get_player_angle(game->map);
 }
 
-static void load_anim_image(t_game *game)
+static void	load_anim_image(t_game *game)
 {
 	int	i;
 
@@ -47,7 +47,7 @@ static void load_anim_image(t_game *game)
 	while (i < ANIM_SIZE)
 	{
 		game->animation->frames[i]->image = mlx_texture_to_image(game->mlx,
-			game->animation->frames[i]->texture);
+				game->animation->frames[i]->texture);
 		if (!game->animation->frames[i]->image)
 			add_error(game, ft_strdup(TEXTURE_LOAD_ERROR_MSG));
 		else
@@ -55,7 +55,7 @@ static void load_anim_image(t_game *game)
 				game->animation->frames[i]->image,
 				(uint32_t) ANIM_IMG_WIDTH * ANIM_IMG_SCALE,
 				(uint32_t) ANIM_IMG_HEIGHT * ANIM_IMG_SCALE
-			);
+				);
 		i++;
 	}
 }

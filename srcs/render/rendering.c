@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:14:16 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/13 15:57:32 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/17 15:39:17 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	draw_wall(t_game *game, int t_pix, int b_pix, double wall_h)
 	double			factor;
 
 	texture = get_texture(game, game->ray->flag);
-	// game->ray->door = 0;
 	arr = (uint32_t *)texture->pixels;
 	factor = (double)texture->height / wall_h;
 	x_o = get_x_o(texture, game);
@@ -58,11 +57,8 @@ void	render_wall(t_game *game, int ray)
 	double	t_pix;
 
 	game->ray->dist *= cos(nor_angle(game->ray->ray_a - game->player->angle));
-	// printf("angle %f\n", cos(nor_angle(mlx->player->angle - mlx->ray->ray_a)));
 	wall_h = (TILE_SIZE / game->ray->dist) * ((WIN_WIDTH / 2) / \
 		tan(game->player->fov_rd / 2));
-	// printf("ray angle : %f, player angle : %f\n", mlx->ray->ray_a, mlx->player->angle);
-	// printf("ray dist : %f\n", mlx->ray->dist);
 	b_pix = (WIN_HEIGHT / 2) + (wall_h / 2);
 	t_pix = (WIN_HEIGHT / 2) - (wall_h / 2);
 	if (b_pix > WIN_HEIGHT)
