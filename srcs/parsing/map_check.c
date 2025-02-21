@@ -6,7 +6,7 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:22:51 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 04:57:07 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:24:12 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,12 @@ static bool	is_map_path_valid(t_game *game, int x, int y)
 	if (ft_lstsize(game->errors) > 0)
 		return (false);
 	tile = game->map->tiles[y][x];
-	if (tile == WALL || tile == (PATH * -1) || tile == (DOOR * -1)
-		|| tile == ' ')
+	if (tile == ' ' || y == 0 || x == 0 || y >= game->map->max_h - 1)
+		return (add_error(game, ft_strdup(INVALID_PATH_MSG)), false);
+	if (tile == WALL || tile == (PATH * -1) || tile == (DOOR * -1))
 		return (false);
 	if (tile == PATH || tile == DOOR)
 		game->map->tiles[y][x] *= -1;
-	if (tile == ' ' || y == 0 || x == 0 || y >= game->map->max_h - 1)
-		add_error(game, ft_strdup(INVALID_PATH_MSG));
 	north = is_map_path_valid(game, x, y - 1);
 	south = is_map_path_valid(game, x, y + 1);
 	east = is_map_path_valid(game, x + 1, y);
