@@ -6,11 +6,14 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:22:51 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/21 16:24:12 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/21 21:58:16 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+#include <stdio.h>
+#include "debug.h"
 
 static void	save_tile(t_game *game, t_vector pos)
 {
@@ -19,7 +22,7 @@ static void	save_tile(t_game *game, t_vector pos)
 		|| game->map->tiles[pos.y][pos.x] == WEST
 		|| game->map->tiles[pos.y][pos.x] == EAST)
 	{
-		if (game->map->start_pos.x != 0 || game->map->start_pos.y != 0)
+		if (game->map->start_pos.x != -1 || game->map->start_pos.y != -1)
 			return (add_error(game, ft_strdup(DUPLICATE_START_MSG)));
 		game->map->start_pos.x = pos.x;
 		game->map->start_pos.y = pos.y;
@@ -44,11 +47,10 @@ static void	is_map_block_valid(t_game *game)
 		}
 		pos.y++;
 	}
-	if (game->map->start_pos.x == 0 || game->map->start_pos.y == 0)
+	if (game->map->start_pos.x == -1 || game->map->start_pos.y == -1)
 		add_error(game, ft_strdup(MISSING_COMPONENT_MSG));
 }
 
-// dont forget to put player pos again
 static bool	is_map_path_valid(t_game *game, int x, int y)
 {
 	int		north;
@@ -60,7 +62,8 @@ static bool	is_map_path_valid(t_game *game, int x, int y)
 	if (ft_lstsize(game->errors) > 0)
 		return (false);
 	tile = game->map->tiles[y][x];
-	if (tile == ' ' || y == 0 || x == 0 || y >= game->map->max_h - 1)
+	if (tile == ' '
+		|| ((y == 0 || x == 0 || y >= game->map->max_h - 1) && tile != WALL))
 		return (add_error(game, ft_strdup(INVALID_PATH_MSG)), false);
 	if (tile == WALL || tile == (PATH * -1) || tile == (DOOR * -1))
 		return (false);
