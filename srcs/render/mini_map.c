@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:58:04 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/17 14:52:33 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/21 12:15:15 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	draw_player(t_game *game)
 
 void	wich_wall_to_draw(t_game *game, char one_tile, int x_p, int y_p)
 {
-	if (one_tile == '1')
+	if (one_tile == '1' || one_tile == ' ')
 		draw_tiles_mini_map(game, x_p, y_p, GREY);
 	else if (one_tile == 'D')
 		draw_tiles_mini_map(game, x_p, y_p, BLU);

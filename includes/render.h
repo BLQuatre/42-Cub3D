@@ -6,7 +6,7 @@
 /*   By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:49:59 by jbergos           #+#    #+#             */
-/*   Updated: 2025/02/17 15:36:27 by jbergos          ###   ########.fr       */
+/*   Updated: 2025/02/21 12:11:09 by jbergos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,9 @@ void			add_step(float *x, float *y, float x_step, float y_step);
 mlx_texture_t	*get_texture(t_game *game, int flag);
 
 // *** MINI_MAP
-void	mini_map(t_game *game);
-
+void			mini_map(t_game *game);
 
 // *** DOOR
-void	door_action_v(t_game *game, double v, double mid_a);
-void	door_action_h(t_game *game, double h, double mid_a);
+void			door_action_v(t_game *game, double v, double mid_a);
+void			door_action_h(t_game *game, double h, double mid_a);
 #endif
