@@ -7,7 +7,7 @@
 *.o
 *.a
 
-cub3d
+cub3D
 error
 latest.log
 

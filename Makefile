@@ -6,11 +6,11 @@
 #    By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/17 15:37:24 by jbergos          ###   ########.fr        #
+#    Updated: 2025/02/23 14:47:05 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= cub3d
+NAME		= cub3D
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g -pthread
 LFLAGS		= -ldl -lglfw -lm
