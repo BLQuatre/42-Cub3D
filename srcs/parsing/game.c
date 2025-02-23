@@ -6,12 +6,11 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 01:19:52 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 19:27:25 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/23 15:11:05 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "debug.h"
 
 void	handle_game(t_game *game, char *file)
 {
@@ -31,6 +30,4 @@ void	handle_game(t_game *game, char *file)
 	load_animations(game);
 	if (ft_lstsize(game->errors) > 0 || !check_textures(game->textures))
 		quit(game, 1);
-	debug_show_game(game);
-	debug_show_map(game->map);
 }

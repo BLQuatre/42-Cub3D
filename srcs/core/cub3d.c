@@ -6,12 +6,11 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:25:58 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/13 05:50:14 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/23 15:11:13 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "debug.h"
 #include "render.h"
 
 static bool	is_valid_args(int ac, char **av, t_game *game)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jbergos <jbergos@student.42.fr>            +#+  +:+       +#+         #
+#    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 17:59:51 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/23 14:47:05 by cauvray          ###   ########.fr        #
+#    Updated: 2025/02/23 15:10:46 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,7 @@ MLX_DIR		= mlx42
 MLX_FILE	= libmlx42.a
 MLX_LIB		= $(MLX_DIR)/$(MLX_FILE)
 
-RAW_FILES	=	debug/debug debug/vector debug/map debug/game debug/color	\
-				\
-				utils/arrays utils/colors 									\
+RAW_FILES	=	utils/arrays utils/colors 									\
 				\
 				structs/animation structs/door structs/frame structs/game	\
 				structs/map	structs/player structs/ray structs/textures		\

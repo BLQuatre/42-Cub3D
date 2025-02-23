@@ -6,14 +6,11 @@
 /*   By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:22:51 by cauvray           #+#    #+#             */
-/*   Updated: 2025/02/21 21:58:16 by cauvray          ###   ########.fr       */
+/*   Updated: 2025/02/23 15:11:20 by cauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-#include <stdio.h>
-#include "debug.h"
 
 static void	save_tile(t_game *game, t_vector pos)
 {
